@@ -54,7 +54,7 @@
   {
     "id": "a4",
     "name": "Phố cổ Hội An",
-    "city": "Đà Nẵng",
+    "city": "Hội An",
     "ticketPrice": 80000,
     "currency": "VND",
     "image": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=400",
@@ -465,6 +465,753 @@
       "Hang động"
     ],
     "description": "Vịnh Hạ Long trên cạn: đi thuyền sông Ngô Đồng qua hang. Vé thuyền tham khảo ~250.000đ/4 khách.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a31",
+    "name": "Văn Miếu – Quốc Tử Giám",
+    "city": "Hà Nội",
+    "ticketPrice": 30000,
+    "tags": [
+      "Di tích lịch sử",
+      "Phù hợp gia đình",
+      "Văn hóa"
+    ],
+    "description": "Di tích Văn Miếu 58 Quốc Tử Giám. Vé tham quan ~30.000đ/khách (theo quy định Khu di tích).",
+    "suggestedDuration": "1-2 giờ",
+    "sourceName": "Khu di tích Văn Miếu",
+    "sourceUrl": "https://vanmieu.gov.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a32",
+    "name": "Hoàng thành Thăng Long",
+    "city": "Hà Nội",
+    "ticketPrice": 100000,
+    "tags": [
+      "Di sản UNESCO",
+      "Lịch sử",
+      "Phù hợp gia đình"
+    ],
+    "description": "Di sản UNESCO 19C Hoàng Diệu. Vé tham quan khoảng 100.000đ.",
+    "suggestedDuration": "2 giờ",
+    "sourceName": "Hoàng thành Thăng Long",
+    "sourceUrl": "https://hoangthanhthanglong.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a33",
+    "name": "Lăng Chủ tịch Hồ Chí Minh",
+    "city": "Hà Nội",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Lịch sử",
+      "Tâm linh"
+    ],
+    "description": "Quần thể Lăng Bác, Phố cổ Hồ Gươm. Miễn phí; cần trang phục lịch sự, xếp hàng sớm.",
+    "suggestedDuration": "2-3 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a34",
+    "name": "Phố cổ Hà Nội & Hồ Hoàn Kiếm",
+    "city": "Hà Nội",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Ẩm thực",
+      "Check-in",
+      "Buổi tối"
+    ],
+    "description": "36 phố phường, hồ Hoàn Kiếm, đền Ngọc Sơn (vé đền ~30.000đ). Dạo phố miễn phí.",
+    "suggestedDuration": "Nửa ngày - 1 ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a35",
+    "name": "Bảo tàng Lịch sử Quân sự Việt Nam",
+    "city": "Hà Nội",
+    "ticketPrice": 40000,
+    "tags": [
+      "Bảo tàng",
+      "Lịch sử",
+      "Phù hợp gia đình"
+    ],
+    "description": "28A Lê Trọng Tấn. Vé tham quan khoảng 40.000đ.",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a36",
+    "name": "Dinh Độc Lập",
+    "city": "TP.HCM",
+    "ticketPrice": 65000,
+    "tags": [
+      "Di tích lịch sử",
+      "Phù hợp gia đình"
+    ],
+    "description": "135 Nam Kỳ Khởi Nghĩa, Q.1. Vé tham quan ~65.000đ theo quy định di tích.",
+    "suggestedDuration": "1-2 giờ",
+    "sourceName": "Dinh Độc Lập",
+    "sourceUrl": "https://dinhdoclaphcm.com.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a37",
+    "name": "Bảo tàng Chứng tích Chiến tranh",
+    "city": "TP.HCM",
+    "ticketPrice": 40000,
+    "tags": [
+      "Bảo tàng",
+      "Lịch sử",
+      "Không phù hợp trẻ nhỏ"
+    ],
+    "description": "28 Võ Văn Tần, Q.3. Vé ~40.000đ; nội dung nhạy cảm, cân nhắc trẻ nhỏ.",
+    "suggestedDuration": "2 giờ",
+    "sourceName": "War Remnants Museum",
+    "sourceUrl": "https://baotangchungtichchientranh.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a38",
+    "name": "Chợ Bến Thành",
+    "city": "TP.HCM",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Ẩm thực",
+      "Mua sắm"
+    ],
+    "description": "Biểu tượng Sài Gòn, ẩm thực và quà lưu niệm. Không thu vé vào chợ.",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a39",
+    "name": "Landmark 81 & SkyView",
+    "city": "TP.HCM",
+    "ticketPrice": 300000,
+    "tags": [
+      "Check-in",
+      "View cao",
+      "Buổi tối"
+    ],
+    "description": "Tòa nhà cao nhất VN, vé SkyView tham khảo từ ~300.000đ.",
+    "suggestedDuration": "1-2 giờ",
+    "priceNote": "Giá vé SkyView tham khảo theo Landmark 81."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a40",
+    "name": "Đại Nội Huế",
+    "city": "Huế",
+    "ticketPrice": 200000,
+    "tags": [
+      "Di sản UNESCO",
+      "Lịch sử",
+      "Phù hợp gia đình"
+    ],
+    "description": "Kinh thành Huế. Vé tham quan khoảng 200.000đ (theo quy định Khu di tích cố đô).",
+    "suggestedDuration": "Nửa ngày",
+    "sourceName": "Khu di tích Cố đô Huế",
+    "sourceUrl": "https://hueworldheritage.org.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a41",
+    "name": "Lăng Khải Định",
+    "city": "Huế",
+    "ticketPrice": 150000,
+    "tags": [
+      "Di tích lịch sử",
+      "Lịch sử"
+    ],
+    "description": "Lăng vua Khải Định trên đồi Châu E. Vé khoảng 150.000đ.",
+    "suggestedDuration": "1 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a42",
+    "name": "Sông Hương – Du thuyền ca nghe",
+    "city": "Huế",
+    "ticketPrice": 120000,
+    "tags": [
+      "Thiên nhiên",
+      "Buổi tối",
+      "Văn hóa"
+    ],
+    "description": "Tour thuyền rồng nghe ca Huế buổi tối. Giá tham khảo ~120.000đ/người.",
+    "suggestedDuration": "2 giờ",
+    "priceNote": "Giá tour tham khảo."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a43",
+    "name": "VinWonders Phú Quốc",
+    "city": "Phú Quốc",
+    "ticketPrice": 950000,
+    "tags": [
+      "Phù hợp gia đình",
+      "Vui chơi",
+      "Công viên nước"
+    ],
+    "description": "Công viên giải trí VinWonders Phú Quốc. Vé tiêu chuẩn tham khảo ~950.000đ người lớn (vinwonders.com).",
+    "suggestedDuration": "1 ngày",
+    "sourceName": "VinWonders",
+    "sourceUrl": "https://vinwonders.com"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a44",
+    "name": "Bãi Sao Phú Quốc",
+    "city": "Phú Quốc",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Bãi biển",
+      "Tắm biển",
+      "Phù hợp gia đình"
+    ],
+    "description": "Một trong những bãi biển đẹp nhất Phú Quốc. Vào bãi miễn phí; chi phí dịch vụ riêng.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a45",
+    "name": "Hòn Thơm – Cáp treo Hòn Thơm",
+    "city": "Phú Quốc",
+    "ticketPrice": 0,
+    "tags": [
+      "Cáp treo",
+      "Check-in",
+      "Phù hợp gia đình"
+    ],
+    "description": "Cáp treo vượt biển dài nhất thế giới (theo công bố Sun Group). Giá cáp treo theo gói Sun World.",
+    "suggestedDuration": "Nửa ngày",
+    "sourceName": "Sun World Hon Thom",
+    "sourceUrl": "https://sungroup.com.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a46",
+    "name": "Hồ Xuân Hương & Chợ Đà Lạt",
+    "city": "Đà Lạt",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Thiên nhiên",
+      "Ẩm thực"
+    ],
+    "description": "Trung tâm Đà Lạt, chợ đêm và hồ nước. Miễn phí tham quan ngoài trời.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a47",
+    "name": "Datanla Falls (Thác Datanla)",
+    "city": "Đà Lạt",
+    "ticketPrice": 150000,
+    "tags": [
+      "Thiên nhiên",
+      "Vui chơi",
+      "Phù hợp gia đình"
+    ],
+    "description": "Thác nước với máng trượt Alpine Coaster. Vé tham khảo ~150.000đ (chưa gồm coaster).",
+    "suggestedDuration": "2-3 giờ",
+    "sourceName": "Datanla New Alpine Coaster",
+    "sourceUrl": "https://datanla.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a48",
+    "name": "Crazy House (Ngôi nhà điên)",
+    "city": "Đà Lạt",
+    "ticketPrice": 60000,
+    "tags": [
+      "Kiến trúc",
+      "Check-in"
+    ],
+    "description": "03 Huỳnh Thúc Kháng. Vé vào cổng ~60.000đ.",
+    "suggestedDuration": "1 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a49",
+    "name": "Langbiang Peak",
+    "city": "Đà Lạt",
+    "ticketPrice": 120000,
+    "tags": [
+      "Thiên nhiên",
+      "Không phù hợp trẻ nhỏ",
+      "Đường núi"
+    ],
+    "description": "Đỉnh Langbiang 2167m, Jeep/trekking. Vé tham khảo ~120.000đ.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a50",
+    "name": "Vịnh Hạ Long (hành trình VHL1)",
+    "city": "Hạ Long",
+    "ticketPrice": 310000,
+    "tags": [
+      "Di sản UNESCO",
+      "Thuyền",
+      "Phù hợp gia đình"
+    ],
+    "description": "Phí tham quan VHL1: 250.000đ + phí cảng ~60.000đ ≈ 310.000đ/người (NQ HĐND Quảng Ninh 2025). Chưa gồm tiền tàu.",
+    "suggestedDuration": "1 ngày",
+    "sourceName": "Ban Quản lý Vịnh Hạ Long",
+    "sourceUrl": "https://halongbay.com.vn",
+    "priceNote": "Chưa bao gồm thuê tàu/ghép tàu."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a51",
+    "name": "Sung Sot Cave (Hang Sửng Sốt)",
+    "city": "Hạ Long",
+    "ticketPrice": 0,
+    "tags": [
+      "Hang động",
+      "Thiên nhiên"
+    ],
+    "description": "Nằm trong hành trình VHL; không bán vé riêng nếu đã mua hành trình vịnh.",
+    "suggestedDuration": "1 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a52",
+    "name": "Sun World Fansipan Legend",
+    "city": "Sa Pa",
+    "ticketPrice": 750000,
+    "tags": [
+      "Cáp treo",
+      "Thiên nhiên",
+      "Không phù hợp trẻ nhỏ"
+    ],
+    "description": "Cáp treo lên đỉnh Fansipan. Vé cáp treo khứ hồi tham khảo ~750.000đ người lớn (sunworld.vn).",
+    "suggestedDuration": "Nửa ngày",
+    "sourceName": "Sun World Fansipan",
+    "sourceUrl": "https://sunworld.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a53",
+    "name": "Bản Cát Cát",
+    "city": "Sa Pa",
+    "ticketPrice": 70000,
+    "tags": [
+      "Văn hóa",
+      "Thiên nhiên",
+      "Phù hợp gia đình"
+    ],
+    "description": "Bản người H'Mông cách trung tâm Sa Pa ~3km. Vé tham quan ~70.000đ.",
+    "suggestedDuration": "2-3 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a54",
+    "name": "Bãi Sau – Back Beach Vũng Tàu",
+    "city": "Vũng Tàu",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Bãi biển",
+      "Tắm biển"
+    ],
+    "description": "Bãi biển phía nam Vũng Tàu, sóng mạnh hơn Bãi Trước. Miễn phí.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a55",
+    "name": "Đồi cát đỏ Mũi Né",
+    "city": "Phan Thiết",
+    "ticketPrice": 100000,
+    "tags": [
+      "Thiên nhiên",
+      "Check-in",
+      "Không phù hợp trẻ nhỏ"
+    ],
+    "description": "Đồi cát Mũi Né, trượt ván. Vé tham khảo ~100.000đ (tour/xe jeep).",
+    "suggestedDuration": "2 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a56",
+    "name": "Làng chài Mũi Né",
+    "city": "Phan Thiết",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Ẩm thực",
+      "Biển"
+    ],
+    "description": "Làng chài truyền thống, hải sản tươi. Không thu vé; chi phí ăn uống riêng.",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a57",
+    "name": "Chùa Bái Đính",
+    "city": "Ninh Bình",
+    "ticketPrice": 0,
+    "tags": [
+      "Tâm linh",
+      "Phù hợp gia đình"
+    ],
+    "description": "Quần thể chùa Bái Đính, xã Gia Sinh. Vào cổng miễn phí; xe điện khứ hồi ~100.000đ; tham quan Bảo Tháp ~50.000đ (chuabaidinhninhbinh.vn).",
+    "suggestedDuration": "2-3 giờ",
+    "sourceName": "Chùa Bái Đính Ninh Bình",
+    "sourceUrl": "https://chuabaidinhninhbinh.vn",
+    "priceNote": "Chỉ thu phí dịch vụ xe điện/Bảo Tháp, không thu vé vào cổng."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a58",
+    "name": "Đền Hùng (Phú Thọ)",
+    "city": "Phú Thọ",
+    "ticketPrice": 0,
+    "tags": [
+      "Tâm linh",
+      "Lịch sử",
+      "Miễn phí"
+    ],
+    "description": "Khu di tích lịch sử Đền Hùng. Miễn phí; đông dịp Giỗ Tổ 10/3 âm lịch.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a59",
+    "name": "Động Phong Nha",
+    "city": "Quảng Bình",
+    "ticketPrice": 150000,
+    "tags": [
+      "Hang động",
+      "Di sản UNESCO",
+      "Phù hợp gia đình",
+      "Giá niêm yết"
+    ],
+    "description": "Vé tham quan 150.000đ/người/lượt; trẻ <1,3m miễn phí. Thuyền vận chuyển 700.000đ/thuyền khứ hồi (tối đa 12 khách) — Trung tâm DL Phong Nha–Kẻ Bàng.",
+    "suggestedDuration": "3-4 giờ",
+    "sourceName": "Phong Nha Tourism Center",
+    "sourceUrl": "https://phongnhatourism.com.vn",
+    "priceNote": "Chưa gồm phí thuyền; chia đoàn tối đa 12 người/thuyền."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a60",
+    "name": "Động Thiên Đường",
+    "city": "Quảng Bình",
+    "ticketPrice": 250000,
+    "tags": [
+      "Hang động",
+      "Di sản UNESCO",
+      "Phù hợp gia đình"
+    ],
+    "description": "Vé người lớn 250.000đ; trẻ 1,1m–1,3m giảm 50%. Xe điện trung chuyển tính riêng theo quy định.",
+    "suggestedDuration": "2-3 giờ",
+    "sourceName": "Phong Nha Tourism Center",
+    "sourceUrl": "https://phongnhakebang.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a61",
+    "name": "Suối Moọc – Phong Nha",
+    "city": "Quảng Bình",
+    "ticketPrice": 80000,
+    "tags": [
+      "Thiên nhiên",
+      "Phù hợp gia đình",
+      "Tắm suối"
+    ],
+    "description": "Vé tham quan 80.000đ; gói khám phá người lớn 450.000đ, gói phổ thông 220.000đ (theo TTDL PNKẻ Bàng).",
+    "suggestedDuration": "Nửa ngày",
+    "sourceName": "Phong Nha Tourism Center",
+    "sourceUrl": "https://phongnhatourism.com.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a62",
+    "name": "Chợ nổi Cái Răng",
+    "city": "Cần Thơ",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Ẩm thực",
+      "Văn hóa sông nước",
+      "Buổi sáng"
+    ],
+    "description": "Chợ nổi lớn nhất miền Tây, nên đến từ 5h–7h sáng. Không thu vé; chi phí thuê ghe ~200.000–300.000đ/ghe.",
+    "suggestedDuration": "2-3 giờ",
+    "priceNote": "Chi phí thuê ghe tham khảo, không phải vé cổng."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a63",
+    "name": "Vườn quốc gia Tràm Chim",
+    "city": "Cần Thơ",
+    "ticketPrice": 20000,
+    "tags": [
+      "Thiên nhiên",
+      "Phù hợp gia đình",
+      "Chim"
+    ],
+    "description": "Khu bảo tồn chim (Đồng Tháp, gần Cần Thơ). Vé vào cổng tham khảo ~20.000đ; thuyền riêng.",
+    "suggestedDuration": "Nửa ngày",
+    "sourceName": "Tràm Chim National Park",
+    "sourceUrl": "https://tramchim.org.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a64",
+    "name": "Bến Ninh Kiều",
+    "city": "Cần Thơ",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Check-in",
+      "Buổi tối"
+    ],
+    "description": "Bến sông Cần Thơ, đi dạo và ẩm thực ven sông miễn phí.",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a65",
+    "name": "Tháp Đôi (Tháp Bạ – Tháp Đen)",
+    "city": "Quy Nhơn",
+    "ticketPrice": 15000,
+    "tags": [
+      "Di tích lịch sử",
+      "Văn hóa Chăm",
+      "Phù hợp gia đình"
+    ],
+    "description": "Tháp Chăm tại 1071 Trần Hưng Đạo, TP. Quy Nhơn. Vé ~15.000đ/khách.",
+    "suggestedDuration": "1 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a66",
+    "name": "Kỳ Co – Eo Gió",
+    "city": "Quy Nhơn",
+    "ticketPrice": 25000,
+    "tags": [
+      "Biển đảo",
+      "Check-in",
+      "Không phù hợp trẻ nhỏ"
+    ],
+    "description": "Bãi Kỳ Co và Eo Gió (Nhơn Lý). Phí tham quan/vận chuyển tham khảo ~25.000đ + phí bãi.",
+    "suggestedDuration": "Nửa ngày",
+    "priceNote": "Có thể cần xe địa hình hoặc cano tùy tuyến."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a67",
+    "name": "Hòn Khô",
+    "city": "Quy Nhơn",
+    "ticketPrice": 0,
+    "tags": [
+      "Biển đảo",
+      "Ẩm thực",
+      "Hải sản"
+    ],
+    "description": "Đảo gần bờ Quy Nhơn, nổi tiếng hải sản. Chi phí cano tham khảo, không vé cổng cố định.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a68",
+    "name": "Nhà tù Côn Đảo",
+    "city": "Côn Đảo",
+    "ticketPrice": 0,
+    "tags": [
+      "Lịch sử",
+      "Di tích",
+      "Không phù hợp trẻ nhỏ"
+    ],
+    "description": "Di tích lịch sử Quốc gia đặc biệt. Miễn phí tham quan khu di tích; nên thuê audio guide.",
+    "suggestedDuration": "2-3 giờ",
+    "sourceName": "Côn Đảo National Monuments",
+    "sourceUrl": "https://condao.gov.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a69",
+    "name": "Bãi Đầm Trầu",
+    "city": "Côn Đảo",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Bãi biển",
+      "Rùa biển"
+    ],
+    "description": "Bãi đẹp hoang sơ, mùa rùa đẻ trứng (từ tháng 4–9). Miễn phí; tuân thủ quy định bảo vệ rùa.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a70",
+    "name": "Vịnh Lan Hạ (Cát Bà)",
+    "city": "Cát Bà",
+    "ticketPrice": 80000,
+    "tags": [
+      "Di sản",
+      "Thuyền",
+      "Phù hợp gia đình",
+      "Kayak"
+    ],
+    "description": "Vé tham quan vịnh Lan Hạ tham khảo ~80.000đ; tour kayak/tày riêng. UNESCO Khu dự trữ biosphere.",
+    "suggestedDuration": "1 ngày",
+    "sourceName": "Cat Ba National Park",
+    "sourceUrl": "https://catba.gov.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a71",
+    "name": "Hang Sửng Sốt (Hạ Long – từ Hải Phòng)",
+    "city": "Hạ Long",
+    "ticketPrice": 250000,
+    "tags": [
+      "Hang động",
+      "Di sản UNESCO"
+    ],
+    "description": "Nằm trong hành trình VHL2. Phí tham quan 250.000đ/người (Ban QL Vịnh Hạ Long, NQ 2025).",
+    "suggestedDuration": "1 giờ",
+    "sourceName": "Ban Quản lý Vịnh Hạ Long",
+    "sourceUrl": "https://halongbay.com.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a72",
+    "name": "Địa đạo Củ Chi",
+    "city": "TP.HCM",
+    "ticketPrice": 90000,
+    "tags": [
+      "Lịch sử",
+      "Không phù hợp trẻ nhỏ"
+    ],
+    "description": "Khu di tích Địa đạo Củ Chi. Vé tham quan ~90.000đ (bản đồ); ~110.000đ (bản đồ + trải nghiệm bắn súng tùy chọn).",
+    "suggestedDuration": "Nửa ngày",
+    "sourceName": "Khu di tích Địa đạo Củ Chi",
+    "sourceUrl": "https://www.baotangcuchi.com.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a73",
+    "name": "Thảo Cầm Viên Sài Gòn",
+    "city": "TP.HCM",
+    "ticketPrice": 60000,
+    "tags": [
+      "Phù hợp gia đình",
+      "Thiên nhiên",
+      "Trẻ em"
+    ],
+    "description": "Sở thú & vườn thực vật lâu đời. Vé tham khảo ~60.000đ người lớn.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a74",
+    "name": "Bảo tàng Dân tộc học Tây Nguyên",
+    "city": "Buôn Ma Thuột",
+    "ticketPrice": 30000,
+    "tags": [
+      "Bảo tàng",
+      "Văn hóa",
+      "Phù hợp gia đình"
+    ],
+    "description": "1 Bạch Đằng, Buôn Ma Thuột. Vé ~30.000đ.",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a75",
+    "name": "Thác Dray Nur",
+    "city": "Buôn Ma Thuột",
+    "ticketPrice": 30000,
+    "tags": [
+      "Thiên nhiên",
+      "Thác nước"
+    ],
+    "description": "Thác nước nổi tiếng Tây Nguyên. Vé tham khảo ~30.000đ.",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a76",
+    "name": "Núi Sam – Chùa Bà Chúa Xứ",
+    "city": "An Giang",
+    "ticketPrice": 0,
+    "tags": [
+      "Tâm linh",
+      "Miễn phí",
+      "Phù hợp gia đình"
+    ],
+    "description": "Núi Sam, Châu Đốc. Miễn phí vào cổng; cáp treo riêng nếu đi cáp.",
+    "suggestedDuration": "2-3 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a77",
+    "name": "Rừng tràm Trà Sư",
+    "city": "An Giang",
+    "ticketPrice": 100000,
+    "tags": [
+      "Thiên nhiên",
+      "Thuyền",
+      "Phù hợp gia đình"
+    ],
+    "description": "Khu bảo tồn đa dạng sinh học. Vé thuyền + vé cổng tham khảo ~100.000đ/người.",
     "suggestedDuration": "Nửa ngày"
   }
 ]

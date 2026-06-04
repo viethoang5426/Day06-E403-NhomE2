@@ -17,6 +17,11 @@ const hotels = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'hotels.j
 const transport = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'transport.json'), 'utf8'));
 const attractions = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'attractions.json'), 'utf8'));
 
+const supportedCities = [...new Set([
+  ...hotels.map((h) => h.city),
+  ...attractions.map((a) => a.city),
+])].sort((a, b) => a.localeCompare(b, 'vi'));
+
 // System prompt template
 const SYSTEM_PROMPT = `Bạn là TravelBot — trợ lý lập kế hoạch du lịch thông minh của AI Explorer.
 
@@ -87,7 +92,7 @@ Bạn trả về 1 block JSON "recommendation" tổng kết:
 
 ## Quy tắc quan trọng
 - CHỈ đề xuất từ dữ liệu có sẵn bên dưới. Không bịa thông tin.
-- Nếu KHÔNG CÓ dữ liệu cho điểm đến user yêu cầu, nói rõ: "Hiện tại tôi có dữ liệu cho Đà Nẵng và Nha Trang. Bạn có muốn thử một trong hai điểm đến này không?"
+- Nếu KHÔNG CÓ dữ liệu cho điểm đến user yêu cầu, nói rõ: "Hiện tại tôi có dữ liệu cho: ${supportedCities.join(', ')}. Bạn có muốn chọn một trong các điểm đến này không?"
 - Nếu budget quá thấp, CẢNH BÁO và gợi ý phương án tiết kiệm hoặc tăng budget.
 - Nếu user có trẻ nhỏ, ƯU TIÊN lựa chọn có tag "Phù hợp gia đình" và CẢNH BÁO về những điểm "Không phù hợp trẻ nhỏ".
 - Khi user phản hồi "Không phù hợp" hoặc muốn thay đổi, CẬP NHẬT và đề xuất lại. Không hỏi lại từ đầu.
