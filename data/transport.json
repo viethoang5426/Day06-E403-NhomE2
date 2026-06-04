@@ -118,5 +118,17 @@
     "duration": "10h",
     "bookingUrl": "https://futabus.vn",
     "note": "Xe giường nằm, khởi hành tối"
+  },
+  {
+    "id": "t11",
+    "type": "Xe Limousine",
+    "from": "Hà Nội",
+    "to": "Ninh Bình",
+    "provider": "Tràng An Limousine",
+    "price": 250000,
+    "currency": "VND",
+    "duration": "2h",
+    "bookingUrl": "https://vexere.com",
+    "note": "Xe đón tận nơi, ghế massage cao cấp"
   }
 ]

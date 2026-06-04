@@ -144,8 +144,14 @@
     autoResizeTextarea();
     updateSendButtonState();
 
-    // Show user message
-    appendMessage('user', escapeHtml(message));
+    await sendMessage(message, false);
+  }
+
+  async function sendMessage(message, isHidden = false) {
+    if (!isHidden) {
+      // Show user message
+      appendMessage('user', escapeHtml(message));
+    }
 
     // Add to history
     chatHistory.push({ role: 'user', content: message });
@@ -212,44 +218,187 @@
 
   // --- Render Bot Reply ---
   function renderBotReply(reply) {
-    // Check for JSON recommendation block
     const jsonRegex = /```json\s*([\s\S]*?)```/g;
-    let lastIndex = 0;
     let match;
-    let htmlParts = [];
-    let hasRecommendation = false;
-
+    let hasSpecialBlock = false;
+    let parsedBlocks = [];
+    
+    // First pass: extract valid special JSON blocks
     while ((match = jsonRegex.exec(reply)) !== null) {
-      // Text before JSON block
-      const textBefore = reply.substring(lastIndex, match.index).trim();
-      if (textBefore) {
-        htmlParts.push(renderMarkdown(textBefore));
-      }
-
-      // Try parse JSON
       try {
         const data = JSON.parse(match[1]);
-        if (data.type === 'recommendation') {
-          htmlParts.push(renderRecommendation(data));
-          hasRecommendation = true;
-        } else {
-          htmlParts.push(`<pre><code>${escapeHtml(match[1])}</code></pre>`);
+        if (data.type === 'recommendation' || data.type === 'form_request' || data.type === 'attraction_request') {
+          hasSpecialBlock = true;
+          parsedBlocks.push(data);
         }
       } catch (e) {
-        htmlParts.push(`<pre><code>${escapeHtml(match[1])}</code></pre>`);
+        // Invalid JSON, ignore
       }
-
-      lastIndex = match.index + match[0].length;
+    }
+    
+    let finalHtml = '';
+    
+    if (hasSpecialBlock) {
+      // Render ONLY the special blocks, hiding extra text
+      for (const data of parsedBlocks) {
+        if (data.type === 'recommendation') {
+          finalHtml += renderRecommendation(data);
+        } else if (data.type === 'form_request') {
+          finalHtml += renderTravelForm(data.prefill || {});
+        } else if (data.type === 'attraction_request') {
+          finalHtml += renderAttractionForm(data);
+        }
+      }
+    } else {
+      // Normal rendering
+      let lastIndex = 0;
+      jsonRegex.lastIndex = 0; // reset
+      while ((match = jsonRegex.exec(reply)) !== null) {
+        const textBefore = reply.substring(lastIndex, match.index).trim();
+        if (textBefore) finalHtml += renderMarkdown(textBefore);
+        finalHtml += `<pre><code>${escapeHtml(match[1])}</code></pre>`;
+        lastIndex = match.index + match[0].length;
+      }
+      const textAfter = reply.substring(lastIndex).trim();
+      if (textAfter) finalHtml += renderMarkdown(textAfter);
     }
 
-    // Remaining text after last JSON block
-    const textAfter = reply.substring(lastIndex).trim();
-    if (textAfter) {
-      htmlParts.push(renderMarkdown(textAfter));
-    }
+    const msgEl = appendMessage('bot', finalHtml || renderMarkdown(reply), true);
 
-    const finalHtml = htmlParts.join('');
-    appendMessage('bot', finalHtml || renderMarkdown(reply), true);
+    // Attach form submit listeners if any form was rendered
+    if (msgEl) {
+      const travelForm = msgEl.querySelector('.travel-form');
+      if (travelForm) {
+        travelForm.addEventListener('submit', handleFormSubmit);
+      }
+      const attractionForm = msgEl.querySelector('.attraction-form');
+      if (attractionForm) {
+        attractionForm.addEventListener('submit', handleAttractionFormSubmit);
+      }
+    }
+  }
+
+  // --- Render Form ---
+  function renderTravelForm(prefill) {
+    return `
+      <div class="form-card">
+        <div class="form-title">📋 Cung cấp thông tin chuyến đi</div>
+        <p class="form-desc">Vui lòng điền các thông tin sau để tôi có thể đề xuất lịch trình tốt nhất cho bạn.</p>
+        <form class="travel-form">
+          <div class="form-group">
+            <label>Nơi đi</label>
+            <input type="text" name="departure" placeholder="VD: Hà Nội, TP.HCM..." value="${escapeHtml(prefill.departure || '')}" required>
+          </div>
+          <div class="form-group">
+            <label>Nơi đến</label>
+            <input type="text" name="destination" placeholder="VD: Đà Nẵng, Nha Trang, Ninh Bình..." value="${escapeHtml(prefill.destination || '')}" required>
+          </div>
+          <div class="form-group-row">
+            <div class="form-group">
+              <label>Ngày khởi hành</label>
+              <input type="date" name="startDate" value="${escapeHtml(prefill.startDate || '')}" required>
+            </div>
+            <div class="form-group">
+              <label>Ngày kết thúc</label>
+              <input type="date" name="endDate" value="${escapeHtml(prefill.endDate || '')}" required>
+            </div>
+          </div>
+          <div class="form-group-row">
+            <div class="form-group">
+              <label>Số người lớn</label>
+              <input type="number" min="1" name="adults" id="adults" placeholder="VD: 2" value="${escapeHtml(prefill.adults || '')}" required>
+            </div>
+            <div class="form-group">
+              <label>Số trẻ nhỏ</label>
+              <input type="number" min="0" name="children" id="children" placeholder="VD: 0" value="${escapeHtml(prefill.children || '')}" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ngân sách dự kiến</label>
+            <input type="text" name="budget" id="budgetInput" placeholder="VD: 5 triệu" value="${escapeHtml(prefill.budget || '')}" required>
+          </div>
+          <button type="submit" class="btn-submit-form">Gửi thông tin</button>
+        </form>
+      </div>
+    `;
+  }
+
+  // --- Handle Form Submit ---
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    const departure = formData.get('departure');
+    const destination = formData.get('destination');
+    const startDate = formData.get('startDate');
+    const endDate = formData.get('endDate');
+    const adults = formData.get('adults');
+    const children = formData.get('children');
+    const budget = formData.get('budget');
+    
+    // Disable form to prevent multiple submits
+    const inputs = form.querySelectorAll('input, button');
+    inputs.forEach(input => input.disabled = true);
+    
+    const msg = `Thông tin chuyến đi của tôi:
+- Nơi đi: ${departure}
+- Nơi đến: ${destination}
+- Ngày khởi hành: ${startDate}
+- Ngày kết thúc: ${endDate}
+- Người lớn: ${adults}
+- Trẻ nhỏ: ${children || 0}
+- Ngân sách: ${budget}`;
+    
+    sendMessage(msg, true);
+  }
+
+  // --- Render Attraction Form ---
+  function renderAttractionForm(data) {
+    if (!data.attractions || data.attractions.length === 0) return '';
+    
+    const listHtml = data.attractions.map(a => `
+      <label class="attraction-item">
+        <input type="checkbox" name="attractions" value="${escapeHtml(a.name)}" ${a.precheck ? 'checked' : ''}>
+        <div class="attraction-info-box">
+          <div class="attraction-info-title">
+            <strong>${escapeHtml(a.name)}</strong> - ${escapeHtml(a.price)}
+          </div>
+          ${a.precheck && a.reason ? `<div class="attraction-reason">✨ ${escapeHtml(a.reason)}</div>` : ''}
+        </div>
+      </label>
+    `).join('');
+
+    return `
+      <div class="form-card attraction-form-card">
+        <div class="form-title">📍 Lựa chọn địa điểm thăm quan</div>
+        <p class="form-desc">Dựa vào thông tin của bạn, AI đã đề xuất sẵn các địa điểm phù hợp nhất. Bạn có thể chọn hoặc bỏ chọn theo ý thích:</p>
+        <form class="attraction-form">
+          <div class="attraction-list">
+            ${listHtml}
+          </div>
+          <button type="submit" class="btn-submit-form">Xác nhận & Chốt lịch trình</button>
+        </form>
+      </div>
+    `;
+  }
+
+  // --- Handle Attraction Form Submit ---
+  function handleAttractionFormSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    
+    // Disable form to prevent multiple submits
+    const inputs = form.querySelectorAll('input, button');
+    inputs.forEach(input => input.disabled = true);
+    
+    // Get checked values
+    const checked = form.querySelectorAll('input[name="attractions"]:checked');
+    const checkedNames = Array.from(checked).map(cb => cb.value);
+
+    const msg = `Tôi chọn các địa điểm sau: ${checkedNames.length > 0 ? checkedNames.join(', ') : 'Không chọn địa điểm nào'}. Hãy chốt lịch trình và tính tổng chi phí.`;
+    
+    sendMessage(msg, true);
   }
 
   // --- Render Recommendation Cards ---
@@ -509,6 +658,7 @@
 
     chatMessages.appendChild(messageEl);
     scrollToBottom();
+    return messageEl;
   }
 
   // --- Typing Indicator ---

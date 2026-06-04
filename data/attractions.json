@@ -108,5 +108,16 @@
     "tags": ["Miễn phí", "Phù hợp gia đình", "Bãi biển", "Tắm biển"],
     "description": "Bãi biển chính của Nha Trang, dài 7km dọc đường Trần Phú. Cát vàng mịn, nước ấm, nhiều dịch vụ.",
     "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "id": "a11",
+    "name": "Khu du lịch sinh thái Tràng An",
+    "city": "Ninh Bình",
+    "ticketPrice": 250000,
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1583417646736-22a4666f3630?w=400",
+    "tags": ["Phù hợp gia đình", "Thiên nhiên", "Di sản UNESCO"],
+    "description": "Di sản văn hóa và thiên nhiên thế giới, nổi tiếng với tour đi thuyền qua các hang động kỳ thú.",
+    "suggestedDuration": "Nửa ngày"
   }
 ]

@@ -118,5 +118,17 @@
     "bookingUrl": "https://booking.com/the-dorm-dn",
     "tags": ["Giá rẻ", "Gần trung tâm", "Phù hợp đi 1 mình"],
     "description": "Hostel giường tầng giá rẻ nhất Đà Nẵng, không gian trẻ trung, gần chợ Hàn."
+  },
+  {
+    "id": "h11",
+    "name": "Ninh Binh Hidden Charm Hotel",
+    "city": "Ninh Bình",
+    "pricePerNight": 1200000,
+    "currency": "VND",
+    "rating": 4.6,
+    "image": "https://images.unsplash.com/photo-1548011388-34edfb218db2?w=400",
+    "bookingUrl": "https://booking.com/hidden-charm-nb",
+    "tags": ["Phù hợp gia đình", "Có hồ bơi", "Yên tĩnh"],
+    "description": "Khách sạn 4 sao nằm gần Tam Cốc, có hồ bơi ngoài trời, không gian xanh mát yên tĩnh."
   }
 ]
