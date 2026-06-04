@@ -1,39 +1,38 @@
 # Thin SPEC — Nhóm 2 (AI Explorer)
 
-Bản đặc tả thiết kế hẹp (Thin SPEC) cam kết luồng chức năng sẽ xây dựng cho prototype trong ngày Day 06.
+Bản đặc tả thiết kế hẹp (Thin SPEC) cập nhật theo luồng chức năng thực tế của prototype trong ngày Day 06.
 
 ## 1. Track, product/app và user
 
 * **Track:** Travel  
-* **Product/app thật:** AI Travel Planner Chatbot (Trợ lý lập kế hoạch du lịch thông minh)  
-* **User cụ thể:** Người dùng bận rộn (nhân viên văn phòng, gia đình trẻ) muốn đi du lịch nhưng không có thời gian tìm hiểu về các danh lam thắng cảnh, khách sạn, phương tiện di chuyển tại địa phương. Họ cần một trợ lý AI thu thập nhanh thông tin hành trình và đề xuất trọn gói: khách sạn phù hợp, phương tiện di chuyển kèm giá vé, và các điểm du lịch hấp dẫn.  
+* **Product/app thật:** TravelBot - AI Travel Planner Chatbot (Trợ lý lập kế hoạch du lịch thông minh)  
+* **User cụ thể:** Người dùng bận rộn (nhân viên văn phòng, gia đình trẻ) muốn đi du lịch nhưng không có thời gian tìm hiểu về các danh lam thắng cảnh, khách sạn, phương tiện di chuyển tại địa phương. Họ cần một trợ lý AI thu thập nhanh thông tin hành trình, đề xuất trọn gói các điểm du lịch phù hợp, sau đó tự động tính toán và đưa ra 3 kịch bản chi phí (Tiết kiệm, Thông dụng, Tận hưởng).
 * **Nhóm có phải user thật không? Nếu không, khác ở đâu?**  
-  * **Có.** Các thành viên trong nhóm đều có nhu cầu đi du lịch nhưng thường rất bận và không có thời gian nghiên cứu kỹ về điểm đến. Từng gặp tình huống phải tra cứu nhiều trang web khác nhau (Booking, Traveloka, Google Maps, blog du lịch) để tổng hợp thông tin mà vẫn bỏ sót nhiều địa điểm hay.
+  * **Có.** Các thành viên trong nhóm đều có nhu cầu đi du lịch nhưng thường rất bận và không có thời gian nghiên cứu kỹ về điểm đến, mất nhiều công sức để tự cân đối tài chính cho các lựa chọn khách sạn/xe cộ khác nhau.
 
 ## 2. Evidence summary
 
 | Evidence | Nguồn | User/pain nói lên điều gì? | SPEC phải đổi gì? |
 |---|---|---|---|
-| Khảo sát nội bộ: 4/4 thành viên nhóm mất trung bình 3-5 giờ để lên kế hoạch cho một chuyến đi 2-3 ngày, phải mở 5-8 tab trình duyệt cùng lúc. | Trải nghiệm tự thử nghiệm | Người dùng bận rộn không có đủ thời gian nghiên cứu và so sánh giữa nhiều nguồn. Họ cần một nơi tổng hợp tất cả. | AI phải tự động tổng hợp thông tin từ nhiều nguồn (khách sạn, vé xe/máy bay, điểm du lịch) và trả về kết quả trọn gói trong một cuộc trò chuyện. |
-| Review trên App Store: Nhiều app du lịch chỉ giải quyết 1 khâu (chỉ đặt phòng hoặc chỉ đặt vé), buộc user phải nhảy qua nhiều app. | App Store reviews (Traveloka, Booking, Agoda) | Người dùng muốn trải nghiệm "one-stop" — một chỗ giải quyết tất cả từ khách sạn, vé đến lịch trình tham quan. | Chatbot phải bao phủ cả 3 mảng: khách sạn + phương tiện + điểm du lịch trong cùng một luồng hội thoại. |
-| Phân tích Booking.com AI Trip Planner: Tự động gợi ý điểm đến kèm link đặt phòng, nhưng không gợi ý phương tiện di chuyển hay lịch trình tham quan chi tiết. | Phân tích đối thủ | Các chatbot hiện tại của đối thủ chỉ tập trung vào đặt phòng, chưa giải quyết trọn vẹn nhu cầu lên kế hoạch du lịch. | Tạo điểm khác biệt bằng cách đề xuất trọn gói: khách sạn + phương tiện + trip/danh lam thắng cảnh. |
+| Khảo sát nội bộ: 4/4 thành viên nhóm mất trung bình 3-5 giờ để lên kế hoạch cho một chuyến đi 2-3 ngày, phải mở 5-8 tab trình duyệt cùng lúc. | Trải nghiệm tự thử nghiệm | Người dùng bận rộn không có đủ thời gian nghiên cứu và so sánh giữa nhiều nguồn. Họ cần một nơi tổng hợp tất cả. | AI phải tự động tổng hợp thông tin từ nhiều nguồn (khách sạn, vé xe/máy bay, điểm du lịch) và trả về kết quả trọn gói trong một giao diện duy nhất. |
+| Review trên App Store: Nhiều app du lịch chỉ giải quyết 1 khâu, buộc user phải nhảy qua nhiều app và tự cộng tay các chi phí. | App Store reviews | Người dùng gặp khó khăn trong việc tự cân đối ngân sách tổng thể của chuyến đi. | Chatbot phải cung cấp sẵn các kịch bản chi phí (Tiết kiệm, Thông dụng, Tận hưởng) đã cộng gộp tổng tiền và có link đặt vé trực tiếp. |
 
 ## 3. Pain statement
 
 ```text
-User [người bận rộn muốn đi du lịch nhưng thiếu thời gian tìm hiểu] đang gặp khó ở [bước lập kế hoạch và tìm kiếm thông tin tổng hợp về điểm đến],
-vì [phải tra cứu trên quá nhiều nền tảng khác nhau (đặt phòng, đặt vé, tìm điểm tham quan) mà vẫn không biết hết các danh lam thắng cảnh địa phương],
-dẫn tới [mất nhiều giờ nghiên cứu, bỏ lỡ các địa điểm hay, hoặc từ bỏ việc lập kế hoạch và đi tour truyền thống đắt tiền].
-Bằng chứng chính là [các thành viên nhóm mất 3-5 giờ nghiên cứu cho mỗi chuyến đi ngắn ngày, và review trên App Store cho thấy user phàn nàn phải nhảy qua nhiều app để hoàn tất một chuyến đi].
+User [người bận rộn muốn đi du lịch nhưng thiếu thời gian tìm hiểu] đang gặp khó ở [bước lập kế hoạch, tìm kiếm điểm đến và cân đối ngân sách],
+vì [phải tra cứu trên quá nhiều nền tảng khác nhau (đặt phòng, đặt vé, tìm điểm tham quan) và tự tính toán thủ công các khoản chi phí tổng],
+dẫn tới [mất nhiều giờ nghiên cứu, mệt mỏi vì phải tự so sánh giá, bỏ lỡ các địa điểm hay].
+Bằng chứng chính là [các thành viên nhóm mất 3-5 giờ nghiên cứu cho mỗi chuyến đi, và user App Store phàn nàn phải nhảy qua nhiều app để hoàn tất & tự cộng chi phí một chuyến đi].
 ```
 
 ## 4. Build slice
 
 ```text
 Cho [người bận rộn muốn lên kế hoạch du lịch nhanh chóng],
-prototype sẽ dùng AI để [hỏi lần lượt 5 thông tin: Nơi đi, Nơi đến, Ngày đi, Số người lớn & trẻ nhỏ, Budget],
-tạo ra [gói đề xuất trọn gói gồm: (1) Danh sách khách sạn phù hợp kèm ảnh phòng minh họa và link đặt phòng, (2) Phương tiện di chuyển phù hợp kèm giá vé và link đặt vé, (3) Đề xuất trip/danh lam thắng cảnh/địa điểm du lịch phù hợp với yêu cầu],
-và xử lý [failure mode - AI đề xuất khách sạn/phương tiện không phù hợp ngân sách hoặc điểm du lịch không phù hợp thời gian] bằng [cho phép user phản hồi "Không phù hợp" để AI đề xuất lại với tiêu chí điều chỉnh, kèm hiển thị rõ ràng giá và thông tin nguồn].
+prototype sẽ dùng Form giao diện & AI để [thu thập 6 thông tin: Nơi đi, Nơi đến, Thời gian, Số người, Budget],
+tạo ra [luồng 2 bước: (1) AI gợi ý danh sách địa điểm thăm quan và tự động check sẵn các điểm phù hợp nhất; (2) Dựa trên các điểm user chốt, AI phân tích dữ liệu thật và tính toán ra 3 Kịch bản chi phí: Tiết kiệm, Thông dụng, Tận hưởng gồm đủ Khách sạn, Xe cộ kèm link đặt],
+và xử lý [failure mode - AI chọn dữ liệu ảo hoặc sai giá] bằng [kết nối chặt chẽ AI với cơ sở dữ liệu JSON tĩnh của hệ thống, bắt buộc AI chỉ được phép chọn đúng dữ liệu trong cơ sở dữ liệu hiện có (với 35 điểm đến)].
 ```
 
 ## 5. Auto/Aug decision
@@ -44,25 +43,25 @@ Chọn một:
 * [ ] **Conditional automation:** AI tự làm trong case hẹp; case mơ hồ/rủi ro chuyển người.
 * [ ] **Automation:** AI tự quyết và tự hành động.
 
-* **Lý do chọn:** Việc đặt phòng khách sạn, mua vé phương tiện và chọn lịch trình du lịch là những quyết định mang tính cá nhân cao, phụ thuộc vào sở thích và hoàn cảnh riêng của từng người. AI không thể thay thế hoàn toàn quyết định của user. Hơn nữa, nếu AI tự động đặt phòng/mua vé sai, hậu quả tài chính và rủi ro hành trình rất lớn. Do đó, AI đóng vai trò tổng hợp, phân tích và đề xuất các lựa chọn tốt nhất, còn user là người ra quyết định cuối cùng.
-* **Human role:** **decider** (Người xem xét các đề xuất và quyết định đặt phòng/mua vé) & **customizer** (Người điều chỉnh yêu cầu nếu đề xuất chưa phù hợp, ví dụ thay đổi budget, thêm/bớt ngày, đổi phương tiện).
+* **Lý do chọn:** Việc đi du lịch mang tính cá nhân cao. AI chỉ phân tích Form để đề xuất các điểm tham quan và chọn ra 3 mức chi phí tối ưu nhất dựa trên ngân sách, nhưng chính người dùng mới là người tích/bỏ tích các địa điểm họ muốn đi, và click vào link để chốt đặt phòng/phương tiện.
+* **Human role:** **decider** (Người chốt danh sách điểm đến và lựa chọn 1 trong 3 kịch bản chi phí) & **customizer** (Người điều chỉnh thông tin đầu vào).
 
 ## 6. Four paths
 
 | Path | Prototype phải thể hiện gì? |
 |---|---|
-| **Happy** | User chat: *"Tôi muốn đi du lịch từ TP.HCM đến Đà Nẵng, ngày 15-17/7, 2 người lớn 1 trẻ nhỏ, budget 5 triệu"*. AI thu thập đủ 5 thông tin → Trả về: (1) 3 khách sạn phù hợp kèm ảnh phòng, giá, link đặt phòng; (2) Vé máy bay/xe khách phù hợp kèm giá và link đặt vé; (3) Đề xuất trip tham quan Bà Nà Hills, Cầu Rồng, Bãi biển Mỹ Khê kèm mô tả ngắn. |
-| **Low-confidence** | User cung cấp budget thấp (ví dụ 1.5 triệu cho 3 ngày 2 đêm tại Đà Nẵng). AI cảnh báo: *"Budget của bạn khá hạn chế cho điểm đến này. Tôi sẽ ưu tiên gợi ý nhà nghỉ giá rẻ và phương tiện xe khách. Bạn có muốn tăng budget hoặc đổi điểm đến gần hơn không?"* Kèm đề xuất thay thế. |
-| **Failure** | AI đề xuất khách sạn ngoài tầm giá (ví dụ khách sạn 4 sao khi budget chỉ 3 triệu) hoặc gợi ý phương tiện không khả thi (bay khi chỉ cần đi xe buýt nội thành). User phản hồi "Không phù hợp", AI nhận feedback và đề xuất lại phù hợp hơn. |
-| **Correction** | User yêu cầu đổi tiêu chí giữa chừng: *"Thêm 1 người lớn nữa"* hoặc *"Đổi từ Đà Nẵng sang Nha Trang"*. AI cập nhật lại thông tin và đề xuất mới mà không cần hỏi lại từ đầu. |
+| **Happy** | User điền form. AI trả về form check-box các địa điểm ở nơi đến, đánh dấu sẵn các điểm phù hợp. User bấm Xác nhận. AI tính toán và hiển thị 3 Thẻ Kịch bản chi phí (Tiết kiệm, Thông dụng, Tận hưởng) với khách sạn, phương tiện, tổng tiền và link đặt thực tế. |
+| **Low-confidence** | Điểm đến mà User nhập không có trong hệ thống dữ liệu (hiện tại bao phủ 35 điểm đến). AI sẽ thông báo không có dữ liệu cho địa điểm đó và liệt kê gợi ý một số điểm đến phổ biến đang có trong kho dữ liệu để người dùng đổi ý. |
+| **Failure** | Budget mà User nhập vào quá thấp, không đủ để chi trả ngay cả ở kịch bản "Tiết kiệm" (dựa trên giá thực của khách sạn/xe rẻ nhất). AI sẽ phải cảnh báo ngân sách không khả thi và tư vấn user nâng budget hoặc đổi phương tiện. |
+| **Correction** | User không thích các điểm du lịch AI check sẵn, họ tự tick/bỏ tick lại theo ý mình ở Bước 1. Sang Bước 2, AI tự động tính toán lại giá vé tương ứng với sự lựa chọn thủ công của User. |
 
 ## 7. Failure mode nguy hiểm nhất
 
 ```text
-Nếu user [yêu cầu đề xuất trọn gói du lịch cho gia đình có trẻ nhỏ với budget cụ thể],
-AI có thể [đề xuất khách sạn/phương tiện có giá không chính xác hoặc đã hết phòng/vé, hoặc gợi ý điểm du lịch không phù hợp với trẻ nhỏ],
-hậu quả là [user tin tưởng đặt theo đề xuất nhưng đến nơi phát hiện giá khác, hết phòng, hoặc điểm du lịch không an toàn cho trẻ em].
-Prototype sẽ xử lý bằng [hiển thị rõ ràng thông tin nguồn (tên website, ngày cập nhật), ghi chú cảnh báo: "Giá có thể thay đổi, vui lòng kiểm tra lại tại link đặt phòng/vé trước khi thanh toán", và thêm tag "Phù hợp gia đình" / "Không phù hợp trẻ nhỏ" cho các điểm du lịch].
+Nếu user [nhập form với một ngân sách cụ thể],
+AI có thể [tự ảo giác (hallucinate) ra các mức giá không có thật hoặc tự bịa ra khách sạn/phương tiện không tồn tại để cố làm hài lòng ngân sách của user],
+hậu quả là [user tin tưởng đặt theo đề xuất nhưng khi click vào link thì phát hiện giá ảo, không thể đặt được].
+Prototype sẽ xử lý bằng [đưa toàn bộ dữ liệu 35 tỉnh thành vào System Prompt dưới dạng JSON, và thiết lập System Rule cực kỳ nghiêm ngặt bắt buộc AI chỉ được map đúng ID, Tên, Giá, và Link từ dữ liệu thật, không được phép "sáng tác"].
 Owner kiểm thử path này là [Cao Việt Hoàng].
 ```
 
@@ -70,7 +69,7 @@ Owner kiểm thử path này là [Cao Việt Hoàng].
 
 | Thành viên | Việc phụ trách | Bằng chứng cần có trong repo |
 |---|---|---|
-| **Nguyễn Văn An** | Research / evidence | File JSON dữ liệu mẫu gồm 10 khách sạn, 5 phương tiện, 10 điểm du lịch tại 2 thành phố (Đà Nẵng, Nha Trang) với đầy đủ thông tin: tên, giá, ảnh, link đặt, mô tả, tag phù hợp. |
-| **Cao Việt Hoàng** | SPEC & Prototype | Mã nguồn xử lý luồng hội thoại AI: thu thập 5 thông tin → gọi API LLM → trả kết quả trọn gói (khách sạn + phương tiện + trip) với giao diện chat hiển thị card thông tin kèm ảnh và link. |
-| **Trần Thị Bình** | Test / failure path | Kịch bản kiểm thử gồm 5 test cases: budget quá thấp, đổi tiêu chí giữa chừng, điểm đến không có dữ liệu, gia đình có trẻ nhỏ, yêu cầu mập mờ (không nói rõ nơi đi). |
-| **Lê Hoàng Nam** | Demo script / repo | File README hoàn chỉnh, slide demo 3 phút trình bày luồng Happy path (từ lúc nhập thông tin đến nhận đề xuất trọn gói) và cách xử lý khi budget không phù hợp (Low-confidence path). |
+| **Nguyễn Văn Chung** | Research / evidence | File JSON dữ liệu mẫu khổng lồ bao phủ 35 tỉnh thành (hotels.json, transport.json, attractions.json) với đầy đủ thông tin: tên, giá vé thật, link đặt vé, tag phù hợp. |
+| **Cao Việt Hoàng** | SPEC & Prototype | Mã nguồn luồng 2 bước: Frontend tạo form nhập & form chọn địa điểm → Server GPT-4o-mini tính toán 3 kịch bản chi phí từ JSON → Giao diện hiển thị 3 Thẻ chi phí kèm link đặt, bảo mật API Key qua file .env. |
+| **Võ Duy Bảo** | Test / failure path | Kịch bản kiểm thử: Thử nhập budget siêu thấp, nhập các điểm đến không có trong data, kiểm tra xem AI có check sẵn đúng điểm du lịch cho trẻ em không. |
+| **Vũ Thành Danh** | Demo script / repo | File README hoàn chỉnh, slide demo trình bày luồng Happy path từ Form điền thông tin -> AI chọn điểm du lịch -> AI tính 3 option Tiết kiệm/Thông dụng/Tận hưởng. |
