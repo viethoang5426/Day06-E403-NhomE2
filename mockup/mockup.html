@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViVu AI MVP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 30px
+        }
+
+        .card {
+            width: 520px;
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 16px
+        }
+
+        h2 {
+            text-align: center
+        }
+
+        label {
+            display: block;
+            margin-top: 10px
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: none
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            background: #14b8a6;
+            color: white;
+            border: none;
+            border-radius: 8px
+        }
+
+        .result {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            background: #0f172a;
+            border-radius: 8px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h2></h2>
+
+        <label>Nơi đi</label>
+        <input id="from" placeholder="Ví dụ: Hà Nội">
+
+        <label>Nơi cần đi</label>
+        <input id="to" placeholder="Ví dụ: Đà Nẵng">
+
+        <label>Ngày đi</label>
+        <input id="startDate" type="date">
+
+        <label>Ngày về</label>
+        <input id="endDate" type="date">
+
+        <label>Số người lớn</label>
+        <input id="adults" type="number" value="2">
+
+        <label>Số trẻ em</label>
+        <input id="children" type="number" value="0">
+
+        <label>Ngân sách (VNĐ)</label>
+        <input id="budget" type="number" value="10000000">
+
+        <button onclick="recommend()">Tìm gợi ý</button>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function recommend() {
+            const adults = parseInt(document.getElementById('adults').value) || 0;
+            const children = parseInt(document.getElementById('children').value) || 0;
+            const budget = parseInt(document.getElementById('budget').value) || 0;
+
+            const totalPeople = adults + children;
+
+            let transport = "", groupType = "", cost = 0;
+
+            if (totalPeople === 1) {
+                groupType = "Cá nhân";
+                transport = "Xe ghép";
+                cost = 2500000;
+            } else if (totalPeople <= 5) {
+                groupType = "Nhóm nhỏ";
+                transport = "Xe 7 chỗ";
+                cost = 8000000;
+            } else {
+                groupType = "Đoàn lớn";
+                transport = "Xe 29-45 chỗ";
+                cost = 35000000;
+            }
+
+            const status = cost <= budget
+                ? "✅ Đạt ngân sách"
+                : "⚠️ Vượt ngân sách";
+
+            const result = document.getElementById('result');
+            result.style.display = 'block';
+            result.innerHTML = `
+        <h3>Kết quả gợi ý</h3>
+        <p>📍 Tuyến: ${document.getElementById('from').value} → ${document.getElementById('to').value}</p>
+        <p>👥 Tổng số người: ${totalPeople}</p>
+        <p>🏷️ Loại nhóm: ${groupType}</p>
+        <p>🚌 Phương tiện: ${transport}</p>
+        <p>💰 Chi phí dự kiến: ${cost.toLocaleString()} VNĐ</p>
+        <p>${status}</p>
+    `;
+        }
+    </script>
+</body>
+
+</html>
