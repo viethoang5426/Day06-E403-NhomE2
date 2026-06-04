@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TravelBot - Trợ lý lập kế hoạch du lịch thông minh bằng AI. Tìm khách sạn, phương tiện và điểm du lịch tại Đà Nẵng, Nha Trang.">
+  <title>🌴 TravelBot - AI Travel Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="header-left">
+        <div class="logo">
+          <span class="logo-icon">🌴</span>
+          <div class="logo-text">
+            <h1>TravelBot</h1>
+            <span class="logo-subtitle">AI Travel Planner</span>
+          </div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="api-key-section" id="apiKeySection">
+          <div class="api-key-input-wrapper">
+            <span class="key-icon">🔑</span>
+            <input
+              type="password"
+              id="apiKeyInput"
+              placeholder="Nhập OpenAI API Key..."
+              autocomplete="off"
+            >
+            <button id="toggleKeyVisibility" class="toggle-visibility-btn" title="Hiện/Ẩn API Key">
+              <span class="eye-icon">👁️</span>
+            </button>
+          </div>
+          <button id="saveApiKey" class="btn-save-key">
+            <span>Lưu</span>
+          </button>
+        </div>
+        <div class="api-key-status" id="apiKeyStatus"></div>
+      </div>
+    </header>
+
+    <!-- Chat Area -->
+    <main class="chat-area" id="chatArea">
+      <div class="chat-messages" id="chatMessages">
+        <!-- Messages will be injected here -->
+      </div>
+    </main>
+
+    <!-- Input Area -->
+    <footer class="input-area" id="inputArea">
+      <div class="input-wrapper">
+        <textarea
+          id="messageInput"
+          placeholder="Nhập tin nhắn... (Enter để gửi, Shift+Enter xuống dòng)"
+          rows="1"
+          autocomplete="off"
+        ></textarea>
+        <button id="sendButton" class="btn-send" disabled title="Gửi tin nhắn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+      <div class="input-hint">
+        <span>Powered by OpenAI GPT-4o-mini</span>
+        <span class="separator">•</span>
+        <span>Dữ liệu: Đà Nẵng & Nha Trang</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Ambient background effects -->
+  <div class="ambient-bg">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

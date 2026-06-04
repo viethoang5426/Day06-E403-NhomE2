@@ -1,0 +1,122 @@
+[
+  {
+    "id": "h1",
+    "name": "Khách sạn Mường Thanh Luxury",
+    "city": "Đà Nẵng",
+    "pricePerNight": 850000,
+    "currency": "VND",
+    "rating": 4.5,
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400",
+    "bookingUrl": "https://booking.com/muong-thanh-da-nang",
+    "tags": ["Phù hợp gia đình", "Gần biển", "Có hồ bơi"],
+    "description": "Khách sạn 4 sao ngay bãi biển Mỹ Khê, có hồ bơi, buffet sáng, phòng rộng phù hợp gia đình."
+  },
+  {
+    "id": "h2",
+    "name": "Homestay Chill House",
+    "city": "Đà Nẵng",
+    "pricePerNight": 350000,
+    "currency": "VND",
+    "rating": 4.2,
+    "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400",
+    "bookingUrl": "https://booking.com/chill-house-dn",
+    "tags": ["Giá rẻ", "Gần trung tâm", "Phù hợp cặp đôi"],
+    "description": "Homestay giá rẻ nằm trung tâm, cách cầu Rồng 500m. Phù hợp du lịch tiết kiệm."
+  },
+  {
+    "id": "h3",
+    "name": "Vinpearl Condotel Beachfront",
+    "city": "Đà Nẵng",
+    "pricePerNight": 1500000,
+    "currency": "VND",
+    "rating": 4.8,
+    "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400",
+    "bookingUrl": "https://booking.com/vinpearl-dn",
+    "tags": ["Phù hợp gia đình", "Cao cấp", "View biển", "Có kids club"],
+    "description": "Resort 5 sao với kids club, bãi biển riêng, 3 hồ bơi. Lý tưởng cho gia đình có trẻ nhỏ."
+  },
+  {
+    "id": "h4",
+    "name": "Nha Trang Lodge Hotel",
+    "city": "Nha Trang",
+    "pricePerNight": 600000,
+    "currency": "VND",
+    "rating": 4.3,
+    "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400",
+    "bookingUrl": "https://booking.com/nt-lodge",
+    "tags": ["Phù hợp gia đình", "Gần biển", "Có bể bơi"],
+    "description": "Khách sạn 3 sao nằm ngay trung tâm, cách biển 200m. Phòng family rộng rãi."
+  },
+  {
+    "id": "h5",
+    "name": "Backpacker Hostel Nha Trang",
+    "city": "Nha Trang",
+    "pricePerNight": 200000,
+    "currency": "VND",
+    "rating": 4.0,
+    "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=400",
+    "bookingUrl": "https://booking.com/backpacker-nt",
+    "tags": ["Giá rẻ", "Gần trung tâm", "Phù hợp đi 1 mình"],
+    "description": "Hostel giá rẻ, không gian cộng đồng, phù hợp khách solo hoặc nhóm bạn tiết kiệm."
+  },
+  {
+    "id": "h6",
+    "name": "Vinpearl Resort & Spa Nha Trang",
+    "city": "Nha Trang",
+    "pricePerNight": 2000000,
+    "currency": "VND",
+    "rating": 4.9,
+    "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400",
+    "bookingUrl": "https://booking.com/vinpearl-nt",
+    "tags": ["Phù hợp gia đình", "Cao cấp", "Có Vinpearl Land", "Có kids club"],
+    "description": "Resort 5 sao trên đảo Hòn Tre, bao gồm vé Vinpearl Land, bãi biển riêng, spa."
+  },
+  {
+    "id": "h7",
+    "name": "Sea Star Hotel",
+    "city": "Đà Nẵng",
+    "pricePerNight": 450000,
+    "currency": "VND",
+    "rating": 4.1,
+    "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=400",
+    "bookingUrl": "https://booking.com/sea-star-dn",
+    "tags": ["Giá vừa phải", "Gần biển", "Phù hợp cặp đôi"],
+    "description": "Khách sạn 3 sao view biển, cách Mỹ Khê 300m. Giá hợp lý cho du lịch ngắn ngày."
+  },
+  {
+    "id": "h8",
+    "name": "Golden Bay Hotel",
+    "city": "Đà Nẵng",
+    "pricePerNight": 700000,
+    "currency": "VND",
+    "rating": 4.4,
+    "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400",
+    "bookingUrl": "https://booking.com/golden-bay-dn",
+    "tags": ["Phù hợp gia đình", "Có hồ bơi vô cực", "View biển"],
+    "description": "Khách sạn 4 sao nổi tiếng với hồ bơi vô cực trên tầng thượng, view toàn cảnh biển Đà Nẵng."
+  },
+  {
+    "id": "h9",
+    "name": "Sunrise Beach Hotel",
+    "city": "Nha Trang",
+    "pricePerNight": 500000,
+    "currency": "VND",
+    "rating": 4.2,
+    "image": "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=400",
+    "bookingUrl": "https://booking.com/sunrise-nt",
+    "tags": ["Gần biển", "View đẹp", "Phù hợp cặp đôi"],
+    "description": "Khách sạn boutique gần bãi biển Trần Phú, phòng ấm cúng, view biển tuyệt đẹp."
+  },
+  {
+    "id": "h10",
+    "name": "The Dorm Hostel",
+    "city": "Đà Nẵng",
+    "pricePerNight": 180000,
+    "currency": "VND",
+    "rating": 3.9,
+    "image": "https://images.unsplash.com/photo-1590490360182-c33d955e4f18?w=400",
+    "bookingUrl": "https://booking.com/the-dorm-dn",
+    "tags": ["Giá rẻ", "Gần trung tâm", "Phù hợp đi 1 mình"],
+    "description": "Hostel giường tầng giá rẻ nhất Đà Nẵng, không gian trẻ trung, gần chợ Hàn."
+  }
+]

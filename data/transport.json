@@ -1,0 +1,122 @@
+[
+  {
+    "id": "t1",
+    "type": "Máy bay",
+    "from": "TP.HCM",
+    "to": "Đà Nẵng",
+    "provider": "Vietnam Airlines",
+    "price": 1200000,
+    "currency": "VND",
+    "duration": "1h20",
+    "bookingUrl": "https://vietnamairlines.com",
+    "note": "Bay thẳng, hành lý 23kg"
+  },
+  {
+    "id": "t2",
+    "type": "Máy bay",
+    "from": "TP.HCM",
+    "to": "Đà Nẵng",
+    "provider": "VietJet Air",
+    "price": 750000,
+    "currency": "VND",
+    "duration": "1h20",
+    "bookingUrl": "https://vietjetair.com",
+    "note": "Giá rẻ, hành lý 7kg xách tay"
+  },
+  {
+    "id": "t3",
+    "type": "Xe khách giường nằm",
+    "from": "TP.HCM",
+    "to": "Đà Nẵng",
+    "provider": "Phương Trang (FUTA)",
+    "price": 350000,
+    "currency": "VND",
+    "duration": "17h",
+    "bookingUrl": "https://futabus.vn",
+    "note": "Xe giường nằm, khởi hành tối, đến sáng"
+  },
+  {
+    "id": "t4",
+    "type": "Máy bay",
+    "from": "TP.HCM",
+    "to": "Nha Trang",
+    "provider": "Vietnam Airlines",
+    "price": 950000,
+    "currency": "VND",
+    "duration": "1h05",
+    "bookingUrl": "https://vietnamairlines.com",
+    "note": "Bay thẳng, hành lý 23kg"
+  },
+  {
+    "id": "t5",
+    "type": "Xe khách giường nằm",
+    "from": "TP.HCM",
+    "to": "Nha Trang",
+    "provider": "Phương Trang (FUTA)",
+    "price": 250000,
+    "currency": "VND",
+    "duration": "9h",
+    "bookingUrl": "https://futabus.vn",
+    "note": "Xe giường nằm, nhiều chuyến trong ngày"
+  },
+  {
+    "id": "t6",
+    "type": "Tàu hỏa",
+    "from": "TP.HCM",
+    "to": "Nha Trang",
+    "provider": "Đường sắt Việt Nam",
+    "price": 400000,
+    "currency": "VND",
+    "duration": "7h",
+    "bookingUrl": "https://dsvn.vn",
+    "note": "Giường nằm điều hòa, view đẹp dọc biển"
+  },
+  {
+    "id": "t7",
+    "type": "Máy bay",
+    "from": "Hà Nội",
+    "to": "Đà Nẵng",
+    "provider": "Bamboo Airways",
+    "price": 900000,
+    "currency": "VND",
+    "duration": "1h15",
+    "bookingUrl": "https://bambooairways.com",
+    "note": "Bay thẳng, dịch vụ tốt"
+  },
+  {
+    "id": "t8",
+    "type": "Tàu hỏa",
+    "from": "Hà Nội",
+    "to": "Đà Nẵng",
+    "provider": "Đường sắt Việt Nam",
+    "price": 500000,
+    "currency": "VND",
+    "duration": "16h",
+    "bookingUrl": "https://dsvn.vn",
+    "note": "Giường nằm điều hòa, trải nghiệm đường sắt Bắc-Nam"
+  },
+  {
+    "id": "t9",
+    "type": "Máy bay",
+    "from": "Hà Nội",
+    "to": "Nha Trang",
+    "provider": "VietJet Air",
+    "price": 850000,
+    "currency": "VND",
+    "duration": "1h50",
+    "bookingUrl": "https://vietjetair.com",
+    "note": "Giá rẻ, hành lý 7kg xách tay"
+  },
+  {
+    "id": "t10",
+    "type": "Xe khách giường nằm",
+    "from": "Đà Nẵng",
+    "to": "Nha Trang",
+    "provider": "Phương Trang (FUTA)",
+    "price": 280000,
+    "currency": "VND",
+    "duration": "10h",
+    "bookingUrl": "https://futabus.vn",
+    "note": "Xe giường nằm, khởi hành tối"
+  }
+]

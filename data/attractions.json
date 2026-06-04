@@ -1,0 +1,112 @@
+[
+  {
+    "id": "a1",
+    "name": "Bà Nà Hills",
+    "city": "Đà Nẵng",
+    "ticketPrice": 900000,
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1570366583862-f91883984fde?w=400",
+    "tags": ["Phù hợp gia đình", "Cáp treo", "Cầu Vàng", "Vui chơi"],
+    "description": "Khu du lịch trên núi nổi tiếng với Cầu Vàng, cáp treo dài nhất Việt Nam, làng Pháp và khu vui chơi Fantasy Park.",
+    "suggestedDuration": "1 ngày"
+  },
+  {
+    "id": "a2",
+    "name": "Cầu Rồng",
+    "city": "Đà Nẵng",
+    "ticketPrice": 0,
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=400",
+    "tags": ["Miễn phí", "Check-in", "Phù hợp gia đình", "Buổi tối"],
+    "description": "Cầu biểu tượng của Đà Nẵng, phun lửa và nước vào tối thứ 7 và Chủ nhật. Đi bộ dạo mát buổi tối rất đẹp.",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "id": "a3",
+    "name": "Bãi biển Mỹ Khê",
+    "city": "Đà Nẵng",
+    "ticketPrice": 0,
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400",
+    "tags": ["Miễn phí", "Phù hợp gia đình", "Bãi biển", "Tắm biển"],
+    "description": "Một trong 6 bãi biển đẹp nhất hành tinh theo Forbes. Cát trắng mịn, nước trong xanh, an toàn cho trẻ nhỏ.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "id": "a4",
+    "name": "Phố cổ Hội An",
+    "city": "Đà Nẵng",
+    "ticketPrice": 120000,
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=400",
+    "tags": ["Di sản UNESCO", "Phù hợp gia đình", "Buổi tối", "Ẩm thực"],
+    "description": "Phố cổ Di sản UNESCO cách Đà Nẵng 30km. Đèn lồng lung linh buổi tối, ẩm thực đường phố tuyệt vời.",
+    "suggestedDuration": "Nửa ngày - 1 ngày"
+  },
+  {
+    "id": "a5",
+    "name": "Bán đảo Sơn Trà",
+    "city": "Đà Nẵng",
+    "ticketPrice": 0,
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "tags": ["Thiên nhiên", "Check-in", "Không phù hợp trẻ nhỏ", "Đường núi"],
+    "description": "Bán đảo hoang sơ với chùa Linh Ứng, tượng Phật bà 67m. Đường đèo quanh co, cần thuê xe máy hoặc taxi.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "id": "a6",
+    "name": "Vinpearl Land Nha Trang",
+    "city": "Nha Trang",
+    "ticketPrice": 880000,
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=400",
+    "tags": ["Phù hợp gia đình", "Công viên nước", "Vui chơi", "Trẻ em"],
+    "description": "Công viên giải trí trên đảo Hòn Tre, có cáp treo vượt biển, công viên nước, thủy cung, trò chơi. Thiên đường cho trẻ em.",
+    "suggestedDuration": "1 ngày"
+  },
+  {
+    "id": "a7",
+    "name": "Tháp Bà Ponagar",
+    "city": "Nha Trang",
+    "ticketPrice": 22000,
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1528181304800-259b08848526?w=400",
+    "tags": ["Di tích lịch sử", "Phù hợp gia đình", "Văn hóa Chăm"],
+    "description": "Quần thể tháp Chăm cổ hơn 1000 tuổi, nằm trên đồi nhìn ra sông Cái. Kiến trúc độc đáo, ý nghĩa tâm linh.",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "id": "a8",
+    "name": "Đảo Bình Ba",
+    "city": "Nha Trang",
+    "ticketPrice": 150000,
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400",
+    "tags": ["Biển đảo", "Hải sản", "Không phù hợp trẻ nhỏ", "Lặn biển"],
+    "description": "Đảo tôm hùm nổi tiếng, nước trong vắt. Có thể lặn biển ngắm san hô. Đường đi hơi xa, không phù hợp trẻ nhỏ.",
+    "suggestedDuration": "1 ngày"
+  },
+  {
+    "id": "a9",
+    "name": "Chợ Đầm Nha Trang",
+    "city": "Nha Trang",
+    "ticketPrice": 0,
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=400",
+    "tags": ["Miễn phí", "Ẩm thực", "Mua sắm", "Phù hợp gia đình"],
+    "description": "Chợ truyền thống lớn nhất Nha Trang, nổi tiếng với hải sản tươi sống, yến sào, và đặc sản địa phương.",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "id": "a10",
+    "name": "Bãi biển Trần Phú",
+    "city": "Nha Trang",
+    "ticketPrice": 0,
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=400",
+    "tags": ["Miễn phí", "Phù hợp gia đình", "Bãi biển", "Tắm biển"],
+    "description": "Bãi biển chính của Nha Trang, dài 7km dọc đường Trần Phú. Cát vàng mịn, nước ấm, nhiều dịch vụ.",
+    "suggestedDuration": "Nửa ngày"
+  }
+]
