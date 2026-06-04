@@ -163,6 +163,19 @@ app.post('/api/chat', async (req, res) => {
       return res.status(400).json({ error: 'Vui lòng nhập tin nhắn.' });
     }
 
+    // Check for unsupported destinations in form submit
+    const destinationMatch = message.match(/- Nơi đến:\s*(.+)/);
+    if (destinationMatch) {
+      const dest = destinationMatch[1].trim().toLowerCase();
+      const isSupported = supportedCities.some(city => city.toLowerCase() === dest);
+      
+      if (!isSupported) {
+        return res.json({ 
+          reply: `Xin lỗi, hiện tại hệ thống TravelBot chưa có dữ liệu hỗ trợ cho điểm đến **${destinationMatch[1].trim()}**.\n\nHiện tại chúng tôi đang hỗ trợ **${supportedCities.length}** điểm đến bao gồm:\n${supportedCities.join(', ')}.\n\nVui lòng làm mới trang (F5) và chọn một điểm đến khác nhé!` 
+        });
+      }
+    }
+
     // Initialize OpenAI client with user's API key
     const openai = new OpenAI({ apiKey });
 
