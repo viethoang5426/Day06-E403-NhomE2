@@ -1,0 +1,69 @@
+%% TravelBot — Main flow (export: mmdc -i flow.mmd -o flow.png)
+%% https://mermaid.live
+
+flowchart TB
+    classDef user fill:#ffc857,stroke:#d4a017,color:#1a1a1a
+    classDef ui fill:#00d4ff,stroke:#0096c7,color:#0a0e17
+    classDef api fill:#a78bfa,stroke:#7c3aed,color:#fff
+    classDef llm fill:#34d399,stroke:#059669,color:#0a0e17
+    classDef data fill:#fb923c,stroke:#ea580c,color:#0a0e17
+    classDef json fill:#1e293b,stroke:#34d399,color:#34d399
+    classDef ext fill:#f87171,stroke:#dc2626,color:#fff
+    classDef decision fill:#334155,stroke:#64748b,color:#e2e8f0
+
+    subgraph P0["Phase 0 · Khởi động"]
+        U0["Chat / Quick action"]:::user
+        UI0["POST /api/chat"]:::ui
+        API0["server.js + prompt + data"]:::api
+        LLM0["GPT-4o-mini"]:::llm
+        D0{Đủ 6 trường?}:::decision
+        J0["form_request + prefill"]:::json
+        F0["Form chuyến đi"]:::ui
+        U0 --> UI0 --> API0 --> LLM0 --> D0
+        D0 -->|Không| J0 --> F0
+    end
+
+    subgraph P1["Phase 1 · KS · Vận chuyển · Điểm tham quan"]
+        U1["Submit form"]:::user
+        LLM1["Grounding trong data"]:::llm
+        J1a["recommendation: hotels + transport"]:::json
+        J1b["attraction_request"]:::json
+        UI1a["Card KS"]:::ui
+        UI1b["Card xe/máy bay"]:::ui
+        UI1c["Checkbox điểm"]:::ui
+        DB1["data/*.json"]:::data
+        U1b["User chọn điểm"]:::user
+        F0 --> U1
+        D0 -->|Đủ| U1
+        U1 --> LLM1
+        LLM1 --> J1a & J1b
+        J1a --> UI1a & UI1b
+        J1b --> UI1c
+        DB1 -.-> LLM1
+        UI1c --> U1b
+    end
+
+    subgraph P2["Phase 2 · Ngân sách · Booking"]
+        U2["Xác nhận điểm"]:::user
+        LLM2["3 kịch bản budget"]:::llm
+        J2["budgetScenarios + warnings"]:::json
+        UI2["Tiết kiệm · Thông dụng · Tận hưởng"]:::ui
+        DIS["Disclaimer giá"]:::ui
+        EXT["Booking ngoài app"]:::ext
+        U1b --> U2 --> LLM2 --> J2 --> UI2 --> DIS --> EXT
+    end
+
+    subgraph TRUST["Bốn đường đi"]
+        direction LR
+        T1["Happy"]:::llm
+        T2["Low-confidence"]:::data
+        T3["Failure"]:::ext
+        T4["Correction"]:::user
+    end
+
+    subgraph ERR["Nhánh lỗi"]
+        direction LR
+        E1["No data city"]:::ext
+        E2["Budget thấp"]:::data
+        E3["API 401/402/500"]:::ext
+    end
