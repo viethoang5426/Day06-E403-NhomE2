@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -63,7 +64,7 @@ Block 2: "attraction_request" chứa danh sách TẤT CẢ địa điểm thăm 
     {
       "id": "mã ID địa điểm",
       "name": "Tên địa điểm",
-      "price": "Giá vé (VD: 200.000đ)",
+      "ticketPrice": 200000, // Giá vé bằng số (lấy từ data)
       "precheck": true, // set = true nếu AI thấy điểm này RẤT phù hợp với form (ví dụ có trẻ nhỏ, budget cao...)
       "reason": "Giải thích ngắn ngọn 1 câu tại sao điểm này phù hợp (nếu precheck=true)"
     }
@@ -75,17 +76,49 @@ Bạn trả về 1 block JSON "recommendation" tổng kết:
 {
   "type": "recommendation",
   "attractions": [...danh sách ĐẦY ĐỦ THÔNG TIN các địa điểm user ĐÃ CHỌN, lấy từ data],
-  "budgetBreakdown": {
-    "hotelTotal": "tổng tiền khách sạn (tạm tính)",
-    "transportTotal": "tổng tiền xe",
-    "attractionTotal": "tổng vé thăm quan các điểm đã chọn",
-    "estimatedTotal": "tổng cộng toàn bộ",
-    "currency": "VND"
-  },
-  "warnings": ["Các lưu ý lưu ý nếu có", "ví dụ budget ít, điểm du lịch không phù hợp trẻ nhỏ"]
+  "budgetScenarios": [
+    {
+      "type": "Tiết kiệm",
+      "hotelName": "Tên Khách sạn/Homestay rẻ nhất",
+      "hotelBookingUrl": "Link booking khách sạn (nếu có trong data)",
+      "transportName": "Tên phương tiện rẻ nhất (VD: Xe khách)",
+      "transportBookingUrl": "Link booking xe (nếu có trong data)",
+      "hotelTotal": "Tiền KS",
+      "transportTotal": "Tiền xe",
+      "attractionTotal": "Tiền vé",
+      "estimatedTotal": "Tổng chi phí Tiết kiệm"
+    },
+    {
+      "type": "Thông dụng",
+      "hotelName": "Tên Khách sạn 3-4 sao, giá trung bình",
+      "hotelBookingUrl": "Link booking",
+      "transportName": "Tên Máy bay giá rẻ/Tàu hỏa",
+      "transportBookingUrl": "Link booking",
+      "hotelTotal": "Tiền KS",
+      "transportTotal": "Tiền xe",
+      "attractionTotal": "Tiền vé",
+      "estimatedTotal": "Tổng chi phí Thông dụng"
+    },
+    {
+      "type": "Tận hưởng",
+      "hotelName": "Tên Resort 5 sao, giá cao nhất",
+      "hotelBookingUrl": "Link booking",
+      "transportName": "Tên Máy bay hạng thương gia/Limousine",
+      "transportBookingUrl": "Link booking",
+      "hotelTotal": "Tiền KS",
+      "transportTotal": "Tiền xe",
+      "attractionTotal": "Tiền vé",
+      "estimatedTotal": "Tổng chi phí Tận hưởng"
+    }
+  ],
+  "warnings": ["Các lưu ý nếu có"]
 }
 
-## Quy tắc quan trọng
+## Quy tắc chọn lựa 3 kịch bản:
+- Tiết kiệm: PHẢI CHỌN khách sạn và phương tiện có chi phí THẤP NHẤT trong tập data được cung cấp.
+- Thông dụng: Lựa chọn ở mức giá trung bình.
+- Tận hưởng: PHẢI CHỌN khách sạn, resort, và phương tiện có chi phí CAO NHẤT trong tập data.
+- Đảm bảo "hotelBookingUrl" và "transportBookingUrl" lấy ĐÚNG từ trường "bookingUrl" của data.
 - CHỈ đề xuất từ dữ liệu có sẵn bên dưới. Không bịa thông tin.
 - Nếu KHÔNG CÓ dữ liệu cho điểm đến user yêu cầu, nói rõ: "Hiện tại tôi có dữ liệu cho Đà Nẵng và Nha Trang. Bạn có muốn thử một trong hai điểm đến này không?"
 - Nếu budget quá thấp, CẢNH BÁO và gợi ý phương án tiết kiệm hoặc tăng budget.
@@ -94,6 +127,11 @@ Bạn trả về 1 block JSON "recommendation" tổng kết:
 - Luôn nhắc user: "Giá tham khảo — vui lòng kiểm tra lại tại link trước khi thanh toán."
 - Trả lời bằng tiếng Việt, thân thiện, tự nhiên.
 - Khi trả lời text bình thường (không phải đề xuất), KHÔNG dùng format JSON.
+
+## Format Response (BẮT BUỘC)
+- Chỉ trả về block JSON, bọc trong \`\`\`json và \`\`\`
+- Trong BƯỚC 1, PHẢI trả về 2 block JSON riêng biệt (1 block "recommendation" và 1 block "attraction_request").
+- KHÔNG thêm bất kỳ text hội thoại nào khác ngoài các block JSON.
 
 ## Dữ liệu khách sạn
 ${JSON.stringify(hotels, null, 2)}
@@ -109,12 +147,11 @@ ${JSON.stringify(attractions, null, 2)}`;
 // Chat endpoint
 app.post('/api/chat', async (req, res) => {
   try {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return res.status(401).json({ error: 'API Key không hợp lệ. Vui lòng nhập API Key của bạn.' });
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      return res.status(500).json({ error: 'Server chưa được cấu hình OpenAI API Key trong file .env' });
     }
 
-    const apiKey = authHeader.replace('Bearer ', '');
     const { message, history } = req.body;
 
     if (!message) {

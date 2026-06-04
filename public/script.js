@@ -7,7 +7,6 @@
   'use strict';
 
   // --- State ---
-  let apiKey = '';
   let chatHistory = []; // { role: 'user'|'assistant', content: '...' }
   let isLoading = false;
 
@@ -16,10 +15,6 @@
   const chatArea = document.getElementById('chatArea');
   const messageInput = document.getElementById('messageInput');
   const sendButton = document.getElementById('sendButton');
-  const apiKeyInput = document.getElementById('apiKeyInput');
-  const saveApiKeyBtn = document.getElementById('saveApiKey');
-  const apiKeyStatus = document.getElementById('apiKeyStatus');
-  const toggleKeyVisibility = document.getElementById('toggleKeyVisibility');
   const sidebar = document.getElementById('sidebar');
   const sidebarToggle = document.getElementById('sidebarToggle');
   const sidebarOverlay = document.getElementById('sidebarOverlay');
@@ -141,25 +136,6 @@
     // Update send button state
     messageInput.addEventListener('input', updateSendButtonState);
 
-    // Save API Key
-    saveApiKeyBtn.addEventListener('click', handleSaveApiKey);
-    apiKeyInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        handleSaveApiKey();
-      }
-    });
-
-    // Toggle API Key visibility
-    toggleKeyVisibility.addEventListener('click', () => {
-      const isPassword = apiKeyInput.type === 'password';
-      apiKeyInput.type = isPassword ? 'text' : 'password';
-      const svgIcon = toggleKeyVisibility.querySelector('.eye-icon-svg');
-      if (svgIcon) {
-        svgIcon.style.opacity = isPassword ? '1' : '0.5';
-      }
-    });
-
     // Sidebar toggle (mobile)
     if (sidebarToggle) {
       sidebarToggle.addEventListener('click', toggleSidebar);
@@ -218,29 +194,6 @@
     sendButton.disabled = !messageInput.value.trim() || isLoading;
   }
 
-  // --- API Key ---
-  function handleSaveApiKey() {
-    const key = apiKeyInput.value.trim();
-    if (!key) {
-      showApiKeyStatus('Vui lòng nhập API Key', 'error');
-      return;
-    }
-
-    apiKey = key;
-    showApiKeyStatus('✓ Đã lưu API Key', 'success');
-
-    // Animate the status
-    setTimeout(() => {
-      apiKeyStatus.textContent = '';
-      apiKeyStatus.className = 'api-key-status';
-    }, 3000);
-  }
-
-  function showApiKeyStatus(text, type) {
-    apiKeyStatus.textContent = text;
-    apiKeyStatus.className = `api-key-status ${type}`;
-  }
-
   // --- Welcome Message ---
   function showWelcomeMessage() {
     const welcomeHtml = `
@@ -280,12 +233,6 @@
     const message = messageInput.value.trim();
     if (!message || isLoading) return;
 
-    if (!apiKey) {
-      showApiKeyStatus('⚠️ Vui lòng nhập API Key trước', 'error');
-      apiKeyInput.focus();
-      return;
-    }
-
     // Clear input
     messageInput.value = '';
     autoResizeTextarea();
@@ -313,7 +260,6 @@
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
           message,
@@ -327,10 +273,6 @@
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         const errorMsg = errorData.error || 'Đã xảy ra lỗi, vui lòng thử lại.';
-
-        if (response.status === 401) {
-          showApiKeyStatus('⚠️ API Key không hợp lệ', 'error');
-        }
 
         appendMessage('bot', `<div class="error-message">⚠️ ${escapeHtml(errorMsg)}</div>`, true);
         // Remove failed message from history
@@ -369,7 +311,7 @@
     let match;
     let hasSpecialBlock = false;
     let parsedBlocks = [];
-    
+
     // First pass: extract valid special JSON blocks
     while ((match = jsonRegex.exec(reply)) !== null) {
       try {
@@ -382,9 +324,9 @@
         // Invalid JSON, ignore
       }
     }
-    
+
     let finalHtml = '';
-    
+
     if (hasSpecialBlock) {
       // Render ONLY the special blocks, hiding extra text
       for (const data of parsedBlocks) {
@@ -457,12 +399,12 @@
             </div>
             <div class="form-group">
               <label>Số trẻ nhỏ</label>
-              <input type="number" min="0" name="children" id="children" placeholder="VD: 0" value="${escapeHtml(prefill.children || '')}" required>
+              <input type="number" min="0" name="children" id="children" placeholder="VD: 0" value="${escapeHtml(prefill.children || '')}">
             </div>
           </div>
           <div class="form-group">
             <label>Ngân sách dự kiến</label>
-            <input type="text" name="budget" id="budgetInput" placeholder="VD: 5 triệu" value="${escapeHtml(prefill.budget || '')}" required>
+            <input type="number" min="0" name="budget" id="budgetInput" placeholder="VD: 5000000" value="${escapeHtml(prefill.budget || '')}" required>
           </div>
           <button type="submit" class="btn-submit-form">🚀 Gửi thông tin</button>
         </form>
@@ -475,7 +417,7 @@
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    
+
     const departure = formData.get('departure');
     const destination = formData.get('destination');
     const startDate = formData.get('startDate');
@@ -483,11 +425,11 @@
     const adults = formData.get('adults');
     const children = formData.get('children');
     const budget = formData.get('budget');
-    
+
     // Disable form to prevent multiple submits
     const inputs = form.querySelectorAll('input, button');
     inputs.forEach(input => input.disabled = true);
-    
+
     const msg = `Thông tin chuyến đi của tôi:
 - Nơi đi: ${departure}
 - Nơi đến: ${destination}
@@ -496,20 +438,20 @@
 - Người lớn: ${adults}
 - Trẻ nhỏ: ${children || 0}
 - Ngân sách: ${budget}`;
-    
+
     sendMessage(msg, true);
   }
 
   // --- Render Attraction Form ---
   function renderAttractionForm(data) {
     if (!data.attractions || data.attractions.length === 0) return '';
-    
+
     const listHtml = data.attractions.map(a => `
       <label class="attraction-item">
         <input type="checkbox" name="attractions" value="${escapeHtml(a.name)}" ${a.precheck ? 'checked' : ''}>
         <div class="attraction-info-box">
           <div class="attraction-info-title">
-            <strong>${escapeHtml(a.name)}</strong> - ${escapeHtml(a.price)}
+            <strong>${escapeHtml(a.name)}</strong> - ${a.ticketPrice === 0 ? 'Miễn phí' : escapeHtml(formatCurrency(a.ticketPrice))}
           </div>
           ${a.precheck && a.reason ? `<div class="attraction-reason">✨ ${escapeHtml(a.reason)}</div>` : ''}
         </div>
@@ -524,7 +466,7 @@
           <div class="attraction-list">
             ${listHtml}
           </div>
-          <button type="submit" class="btn-submit-form">✅ Xác nhận & Chốt lịch trình</button>
+          <button type="submit" class="btn-submit-form">Tôi sẽ đi tới các điểm trên trong chuyến đi</button>
         </form>
       </div>
     `;
@@ -534,17 +476,17 @@
   function handleAttractionFormSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    
+
     // Disable form to prevent multiple submits
     const inputs = form.querySelectorAll('input, button');
     inputs.forEach(input => input.disabled = true);
-    
+
     // Get checked values
     const checked = form.querySelectorAll('input[name="attractions"]:checked');
     const checkedNames = Array.from(checked).map(cb => cb.value);
 
     const msg = `Tôi chọn các địa điểm sau: ${checkedNames.length > 0 ? checkedNames.join(', ') : 'Không chọn địa điểm nào'}. Hãy chốt lịch trình và tính tổng chi phí.`;
-    
+
     sendMessage(msg, true);
   }
 
@@ -602,9 +544,9 @@
       `;
     }
 
-    // Budget breakdown
-    if (data.budgetBreakdown) {
-      html += renderBudgetCard(data.budgetBreakdown);
+    // Budget scenarios
+    if (data.budgetScenarios && data.budgetScenarios.length > 0) {
+      html += renderBudgetScenarios(data.budgetScenarios);
     }
 
     // Warnings
@@ -709,38 +651,68 @@
     `;
   }
 
-  // --- Budget Card ---
-  function renderBudgetCard(budget) {
-    const items = [
-      { label: 'Khách sạn', value: budget.hotelTotal },
-      { label: 'Phương tiện', value: budget.transportTotal },
-      { label: 'Tham quan', value: budget.attractionTotal },
-    ];
+  // --- Budget Scenarios ---
+  function renderBudgetScenarios(scenarios) {
+    if (!scenarios || scenarios.length === 0) return '';
+    
+    const cardsHtml = scenarios.map(s => {
+      let typeClass = 'standard';
+      let icon = '💎';
+      if (s.type.includes('Tiết kiệm')) {
+        typeClass = 'budget';
+        icon = '🌱';
+      } else if (s.type.includes('Thông dụng')) {
+        typeClass = 'standard';
+        icon = '⭐';
+      } else if (s.type.includes('Tận hưởng')) {
+        typeClass = 'luxury';
+        icon = '👑';
+      }
 
-    const remaining = budget.remainingBudget;
-    const isOver = typeof remaining === 'string' && remaining.includes('-');
-    const remainingClass = isOver ? 'over' : 'under';
+      return `
+        <div class="scenario-card ${typeClass}">
+          <div class="scenario-header">
+            <span class="scenario-icon">${icon}</span>
+            <span class="scenario-title">${escapeHtml(s.type)}</span>
+          </div>
+          <div class="scenario-body">
+            <div class="scenario-item">
+              <span class="s-label">Khách sạn:</span>
+              <span class="s-value">${escapeHtml(s.hotelName || '')}</span>
+              <span class="s-price">${escapeHtml(String(s.hotelTotal || '0đ'))}</span>
+            </div>
+            <div class="scenario-item">
+              <span class="s-label">Đi lại:</span>
+              <span class="s-value">${escapeHtml(s.transportName || '')}</span>
+              <span class="s-price">${escapeHtml(String(s.transportTotal || '0đ'))}</span>
+            </div>
+            <div class="scenario-item">
+              <span class="s-label">Tham quan:</span>
+              <span class="s-value">Các điểm đã chọn</span>
+              <span class="s-price">${escapeHtml(String(s.attractionTotal || '0đ'))}</span>
+            </div>
+          </div>
+          <div class="scenario-footer">
+            <div class="scenario-total-label">Tổng chi phí</div>
+            <div class="scenario-total-value">${escapeHtml(String(s.estimatedTotal || '0đ'))}</div>
+          </div>
+          <div class="scenario-links" style="display:flex; gap:8px; padding-top:12px;">
+            ${s.hotelBookingUrl ? `<a href="${escapeHtml(s.hotelBookingUrl)}" target="_blank" style="flex:1; text-align:center; padding:6px; font-size:12px; background:rgba(255,255,255,0.1); border-radius:4px; text-decoration:none; color:var(--text-primary);">📍 Đặt phòng</a>` : ''}
+            ${s.transportBookingUrl ? `<a href="${escapeHtml(s.transportBookingUrl)}" target="_blank" style="flex:1; text-align:center; padding:6px; font-size:12px; background:rgba(255,255,255,0.1); border-radius:4px; text-decoration:none; color:var(--text-primary);">🚌 Đặt xe</a>` : ''}
+          </div>
+        </div>
+      `;
+    }).join('');
 
     return `
-      <div class="budget-card">
-        <div class="budget-card-title">💰 Ước tính chi phí</div>
-        ${items.map(item => `
-          <div class="budget-item">
-            <span>${escapeHtml(item.label)}</span>
-            <span class="budget-value">${escapeHtml(String(item.value || '0đ'))}</span>
-          </div>
-        `).join('')}
-        <hr class="budget-divider">
-        <div class="budget-item">
-          <span><strong>Tổng ước tính</strong></span>
-          <span class="budget-value budget-total">${escapeHtml(String(budget.estimatedTotal || ''))}</span>
+      <div>
+        <div class="rec-section-title">
+          <span class="section-icon">📊</span>
+          3 Kịch bản Tổng chi phí ước tính
         </div>
-        ${remaining !== undefined ? `
-          <div class="budget-item">
-            <span>Budget còn lại</span>
-            <span class="budget-value budget-remaining ${remainingClass}">${escapeHtml(String(remaining))}</span>
-          </div>
-        ` : ''}
+        <div class="budget-scenarios-container">
+          ${cardsHtml}
+        </div>
       </div>
     `;
   }
@@ -847,7 +819,7 @@
       // Attach button action event listeners
       const copyBtn = messageEl.querySelector('.copy-btn');
       const speakBtn = messageEl.querySelector('.speak-btn');
-      
+
       if (copyBtn) {
         copyBtn.addEventListener('click', () => {
           const textToCopy = messageEl.querySelector('.message-text').innerText;
@@ -858,7 +830,7 @@
               copyIcon.style.display = 'none';
               checkIcon.style.display = 'inline-block';
               copyBtn.classList.add('active');
-              
+
               setTimeout(() => {
                 copyIcon.style.display = 'inline-block';
                 checkIcon.style.display = 'none';
@@ -878,7 +850,7 @@
         speakBtn.addEventListener('click', () => {
           const speakIcon = speakBtn.querySelector('.speak-icon');
           const muteIcon = speakBtn.querySelector('.mute-icon');
-          
+
           if (isSpeaking) {
             window.speechSynthesis.cancel();
             isSpeaking = false;
@@ -889,11 +861,11 @@
             speakBtn.classList.remove('active');
           } else {
             window.speechSynthesis.cancel();
-            
+
             const textToSpeak = messageEl.querySelector('.message-text').innerText;
             utterance = new SpeechSynthesisUtterance(textToSpeak);
             utterance.lang = 'vi-VN';
-            
+
             utterance.onend = () => {
               isSpeaking = false;
               if (speakIcon && muteIcon) {
@@ -942,7 +914,7 @@
     const el = document.createElement('div');
     el.className = 'message bot';
     el.id = 'typingIndicator';
-    
+
     const botAvatar = `
       <div class="message-avatar bot-avatar">
         <svg class="bot-avatar-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
