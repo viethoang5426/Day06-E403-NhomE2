@@ -1213,5 +1213,490 @@
     ],
     "description": "Khu bảo tồn đa dạng sinh học. Vé thuyền + vé cổng tham khảo ~100.000đ/người.",
     "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a78",
+    "name": "Khu du lịch sinh thái Tràng An",
+    "city": "Ninh Bình",
+    "ticketPrice": 300000,
+    "tags": [
+      "Di sản UNESCO",
+      "Thuyền",
+      "Phù hợp gia đình",
+      "Giá niêm yết"
+    ],
+    "description": "Vé người lớn >1,3m: 300.000đ; trẻ 1m–1,3m: 150.000đ; <1m miễn phí. Đã gồm đò và phí danh lam (TT Xúc tiến DL Ninh Bình).",
+    "suggestedDuration": "3-4 giờ",
+    "sourceName": "Trung tâm Xúc tiến du lịch Ninh Bình",
+    "sourceUrl": "https://dulichninhbinh.com.vn",
+    "priceNote": "Giá vé chính thức tuyến 1–4; tuyến Khê Cốc có thể khác."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a79",
+    "name": "Tam Cốc – Bích Động",
+    "city": "Ninh Bình",
+    "ticketPrice": 250000,
+    "tags": [
+      "Thiên nhiên",
+      "Thuyền",
+      "Phù hợp gia đình"
+    ],
+    "description": "Vé tham quan Tam Cốc tham khảo ~250.000đ người lớn (đã gồm đò). Bích Động có thể tham quan riêng.",
+    "suggestedDuration": "2-3 giờ",
+    "sourceName": "Trung tâm Xúc tiến du lịch Ninh Bình",
+    "sourceUrl": "https://dulichninhbinh.com.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a80",
+    "name": "Khu du lịch sinh thái Vân Long",
+    "city": "Ninh Bình",
+    "ticketPrice": 200000,
+    "tags": [
+      "Thiên nhiên",
+      "Thuyền",
+      "Chim"
+    ],
+    "description": "Khu bảo tồn Vân Long (Gia Viên). Vé thuyền + cổng tham khảo ~200.000đ/người.",
+    "suggestedDuration": "2-3 giờ",
+    "sourceName": "Emeralda / Vân Long",
+    "sourceUrl": "https://dulichninhbinh.com.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a81",
+    "name": "Cột cờ Lũng Cú",
+    "city": "Hà Giang",
+    "ticketPrice": 50000,
+    "tags": [
+      "Check-in",
+      "Lịch sử",
+      "Phù hợp gia đình"
+    ],
+    "description": "Điểm cực Bắc Việt Nam, xã Lũng Cú. Vé tham khảo ~50.000đ; cần giấy tờ xin phép biên giới.",
+    "suggestedDuration": "1-2 giờ",
+    "sourceName": "Cổng thông tin Hà Giang",
+    "sourceUrl": "https://hagiang.gov.vn",
+    "priceNote": "Một số khu vực biên giới cần đăng ký trước."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a82",
+    "name": "Đèo Mã Pí Lèng",
+    "city": "Hà Giang",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Thiên nhiên",
+      "Check-in",
+      "Không phù hợp trẻ nhỏ"
+    ],
+    "description": "Một trong tứ đại đỉnh đèo phía Bắc. Không thu vé; chi phí xe/thuê xe riêng.",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a83",
+    "name": "Phố cổ Đồng Văn",
+    "city": "Hà Giang",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Văn hóa",
+      "Chợ phiên"
+    ],
+    "description": "Phố cổ đá trên cao nguyên đá Đồng Văn. Miễn phí; chợ phiên Chủ nhật nổi tiếng.",
+    "suggestedDuration": "2-3 giờ",
+    "sourceName": "Cổng thông tin Hà Giang",
+    "sourceUrl": "https://hagiang.gov.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a84",
+    "name": "Sun World Ba Den Mountain",
+    "city": "Tây Ninh",
+    "ticketPrice": 410000,
+    "tags": [
+      "Cáp treo",
+      "Tâm linh",
+      "Phù hợp gia đình"
+    ],
+    "description": "Phí vào cổng 10.000đ + cáp treo đỉnh Vân Sơn khứ hồi 400.000đ người lớn (>1,4m) — sunworld.vn (2025).",
+    "suggestedDuration": "Nửa ngày",
+    "sourceName": "Sun World Ba Den Mountain",
+    "sourceUrl": "https://sunworld.vn",
+    "priceNote": "Chưa gồm combo Chùa Hang/buffet; giá tham khảo mức công bố."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a85",
+    "name": "Tòa Thánh Cao Đài",
+    "city": "Tây Ninh",
+    "ticketPrice": 0,
+    "tags": [
+      "Tâm linh",
+      "Miễn phí",
+      "Kiến trúc"
+    ],
+    "description": "Long Hoa, Hòa Thành. Miễn phí; cần trang phục lịch sự, lễ truyền 12h trưa hàng ngày.",
+    "suggestedDuration": "1-2 giờ",
+    "sourceName": "Tây Ninh Tourism",
+    "sourceUrl": "https://tayninh.gov.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a86",
+    "name": "Gành Đá Dĩa",
+    "city": "Phú Yên",
+    "ticketPrice": 40000,
+    "tags": [
+      "Di tích quốc gia",
+      "Check-in",
+      "Phù hợp gia đình"
+    ],
+    "description": "Di tích QG đặc biệt, xã An Ninh Đông (Tuy An). Vé 40.000đ/người/lượt, đã gồm bảo hiểm (NQ HĐND Phú Yên 2023).",
+    "suggestedDuration": "1 giờ",
+    "sourceName": "Sở Du lịch Phú Yên",
+    "sourceUrl": "https://phuyentourism.gov.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a87",
+    "name": "Bãi Môn – Mũi Điện",
+    "city": "Phú Yên",
+    "ticketPrice": 30000,
+    "tags": [
+      "Biển",
+      "Check-in",
+      "Phù hợp gia đình"
+    ],
+    "description": "Mũi cực Đông Việt Nam (Đông Hòa). Vé tham quan 30.000đ/người/lần theo NQ HĐND Phú Yên.",
+    "suggestedDuration": "1-2 giờ",
+    "sourceName": "Sở Du lịch Phú Yên",
+    "sourceUrl": "https://phuyentourism.gov.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a88",
+    "name": "Bãi Xép – Đá Bia",
+    "city": "Phú Yên",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Biển",
+      "Check-in"
+    ],
+    "description": "Bãi biển hoang sơ gần Tuy Hòa. Không thu vé cổng; chi phí di chuyển riêng.",
+    "suggestedDuration": "2-3 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a89",
+    "name": "Tháp Po Klong Garai",
+    "city": "Ninh Thuận",
+    "ticketPrice": 30000,
+    "tags": [
+      "Di tích",
+      "Văn hóa Chăm",
+      "Phù hợp gia đình"
+    ],
+    "description": "Tháp Chăm thế kỷ XIII tại Phan Rang. Vé tham khảo ~30.000đ.",
+    "suggestedDuration": "1 giờ",
+    "sourceName": "Ninh Thuận Tourism",
+    "sourceUrl": "https://ninhthuantourism.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a90",
+    "name": "Vườn nho Ninh Thuận",
+    "city": "Ninh Thuận",
+    "ticketPrice": 0,
+    "tags": [
+      "Ẩm thực",
+      "Miễn phí",
+      "Phù hợp gia đình"
+    ],
+    "description": "Tham quan vườn nho và làng nho truyền thống. Không vé cổng cố định; chi phí ăn uống/mua nho riêng.",
+    "suggestedDuration": "2-3 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a91",
+    "name": "Biển Cửa Lò",
+    "city": "Nghệ An",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Bãi biển",
+      "Tắm biển"
+    ],
+    "description": "Bãi biển nổi tiếng miền Trung. Miễn phí vào bãi.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a92",
+    "name": "Quê Bác Hồ – Kim Liên",
+    "city": "Nghệ An",
+    "ticketPrice": 0,
+    "tags": [
+      "Lịch sử",
+      "Miễn phí",
+      "Phù hợp gia đình"
+    ],
+    "description": "Khu di tích Kim Liên, Nam Đàn. Miễn phí tham quan quần thể di tích.",
+    "suggestedDuration": "2-3 giờ",
+    "sourceName": "Khu di tích Kim Liên",
+    "sourceUrl": "https://nghean.gov.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a93",
+    "name": "Biển Sầm Sơn",
+    "city": "Thanh Hóa",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Bãi biển",
+      "Phù hợp gia đình"
+    ],
+    "description": "Bãi biển trung tâm Thanh Hóa. Miễn phí; dịch vụ tắm biển/ăn uống riêng.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a94",
+    "name": "Thành nhà Hồ – Tây Giai",
+    "city": "Thanh Hóa",
+    "ticketPrice": 40000,
+    "tags": [
+      "Di sản UNESCO",
+      "Lịch sử"
+    ],
+    "description": "Di sản thế giới Thành nhà Hồ (Vĩnh Lộc). Vé tham khảo ~40.000đ.",
+    "suggestedDuration": "2 giờ",
+    "sourceName": "Thành nhà Hồ",
+    "sourceUrl": "https://thanhhoa.gov.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a95",
+    "name": "Cổng Tò – Hang Câu (Lý Sơn)",
+    "city": "Lý Sơn",
+    "ticketPrice": 0,
+    "tags": [
+      "Biển đảo",
+      "Check-in",
+      "Miễn phí"
+    ],
+    "description": "Đảo tiêu Lý Sơn. Không vé cổng; cần phí phà/tàu cao tốc từ Quảng Ngãi (~200.000–350.000đ/khứ).",
+    "suggestedDuration": "1 ngày",
+    "priceNote": "Chi phí phà/tàu riêng, không phải vé tham quan."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a96",
+    "name": "Ruộng bậc thang Mù Cang Chải",
+    "city": "Yên Bái",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Thiên nhiên",
+      "Check-in"
+    ],
+    "description": "Mùa nước đổ (9–10) và mùa lúa chín (9–10) đẹp nhất. Không thu vé; chi phí homestay/xe riêng.",
+    "suggestedDuration": "1-2 ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a97",
+    "name": "Suối khoáng nóng Trạm Tấu",
+    "city": "Yên Bái",
+    "ticketPrice": 50000,
+    "tags": [
+      "Thiên nhiên",
+      "Nghỉ dưỡng"
+    ],
+    "description": "Khu suối khoáng Trạm Tấu (Văn Chấn). Vé tắm khoáng tham khảo ~50.000đ.",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a98",
+    "name": "Chợ nổi Cái Bè",
+    "city": "Mỹ Tho",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Văn hóa sông nước",
+      "Buổi sáng"
+    ],
+    "description": "Chợ nổi lớn Tiền Giang. Không vé cổng; thuê ghe ~150.000–250.000đ/ghe.",
+    "suggestedDuration": "2-3 giờ",
+    "priceNote": "Chi phí thuê ghe tham khảo."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a99",
+    "name": "Cồn Phụng (Bến Tre)",
+    "city": "Bến Tre",
+    "ticketPrice": 50000,
+    "tags": [
+      "Văn hóa sông nước",
+      "Ẩm thực",
+      "Phù hợp gia đình"
+    ],
+    "description": "Du lịch cồn dừa Bến Tre. Phí phà/xe điện tham khảo ~50.000đ; dịch vụ ăn uống riêng.",
+    "suggestedDuration": "Nửa ngày",
+    "sourceName": "Bến Tre Tourism",
+    "sourceUrl": "https://bentre.gov.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a100",
+    "name": "Mũi Cà Mau",
+    "city": "Cà Mau",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Check-in",
+      "Thiên nhiên"
+    ],
+    "description": "Điểm cực Nam Việt Nam. Miễn phí; có thể thu phí đi lại/xe điện trong khu (~30.000đ).",
+    "suggestedDuration": "2-3 giờ",
+    "sourceName": "Cà Mau Tourism",
+    "sourceUrl": "https://camau.gov.vn"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a101",
+    "name": "Thác Bản Giốc",
+    "city": "Cao Bằng",
+    "ticketPrice": 45000,
+    "tags": [
+      "Thiên nhiên",
+      "Thác nước",
+      "Phù hợp gia đình"
+    ],
+    "description": "Thác Bản Giốc, Trùng Khánh. Vé tham quan tham khảo ~45.000đ; thuyền ngắm cận cảnh tính riêng.",
+    "suggestedDuration": "2-3 giờ",
+    "sourceName": "Cao Bằng Tourism",
+    "sourceUrl": "https://caobang.gov.vn",
+    "priceNote": "Phí thuyền/đi lại biên giới tính riêng."
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a102",
+    "name": "Hang Pác Bó – Suối Lê Nin",
+    "city": "Cao Bằng",
+    "ticketPrice": 0,
+    "tags": [
+      "Lịch sử",
+      "Miễn phí"
+    ],
+    "description": "Di tích lịch sử Hà Quảng. Miễn phí tham quan khu di tích.",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a103",
+    "name": "Bản Lác – Mai Châu",
+    "city": "Mai Châu",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Văn hóa",
+      "Homestay"
+    ],
+    "description": "Bản Thái truyền thống. Miễn phí; chi phí homestay/ẩm thực riêng.",
+    "suggestedDuration": "1 ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a104",
+    "name": "Thác Bạc – Thác Bạc Tam Đảo",
+    "city": "Tam Đảo",
+    "ticketPrice": 80000,
+    "tags": [
+      "Thiên nhiên",
+      "Thác nước"
+    ],
+    "description": "Thác Bạc cách trung tâm Tam Đảo ~3km. Vé tham khảo ~80.000đ (có thể đi bộ hoặc xe ôm).",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a105",
+    "name": "Mũi Nai – Chùa Hang Hà Tiên",
+    "city": "Hà Tiên",
+    "ticketPrice": 0,
+    "tags": [
+      "Tâm linh",
+      "Miễn phí",
+      "Check-in"
+    ],
+    "description": "Quần thể núi Mũi Nai ven biển Kiên Giang. Miễn phí vào chùa; leo núi miễn phí.",
+    "suggestedDuration": "1-2 giờ"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a106",
+    "name": "Bãi biển An Bàng",
+    "city": "Hội An",
+    "ticketPrice": 0,
+    "tags": [
+      "Miễn phí",
+      "Bãi biển",
+      "Tắm biển"
+    ],
+    "description": "Bãi biển cách phố cổ ~5km. Miễn phí; một số quán tính phí ghế (~30.000–50.000đ).",
+    "suggestedDuration": "Nửa ngày"
+  },
+  {
+    "currency": "VND",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "id": "a107",
+    "name": "Cù Lao Chàm",
+    "city": "Hội An",
+    "ticketPrice": 150000,
+    "tags": [
+      "Biển đảo",
+      "Lặn biển",
+      "Phù hợp gia đình"
+    ],
+    "description": "Đảo Cù Lao Chàm (Hội An). Tour cano khứ hồi + bảo tồn biển tham khảo ~150.000–300.000đ.",
+    "suggestedDuration": "1 ngày",
+    "priceNote": "Giá tour/canô tham khảo, không phải vé cổng cố định."
   }
 ]
