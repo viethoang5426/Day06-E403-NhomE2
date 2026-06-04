@@ -136,7 +136,7 @@ flowchart TB
     classDef fail fill:#450a0a,stroke:#f87171,color:#fecaca
     classDef fix fill:#2e1065,stroke:#a78bfa,color:#ede9fe
 
-    START([User bắt đầu chat]) --> PATH
+    START(["User bắt đầu chat"]) --> PATH
 
     subgraph PATH["Chọn nhánh"]
         H["✅ Đường thuận<br/>Đủ info · Có data · Budget OK"]:::happy
@@ -145,10 +145,10 @@ flowchart TB
         CO["✏️ User sửa<br/>Đổi điểm đến · Thêm người"]:::fix
     end
 
-    H --> H1[Form → KS+xe → Chọn điểm → 3 budget → Link booking]
-    L --> L1[warnings[] · Ưu tiên KS rẻ, xe khách<br/>Gợi ý tăng budget / đổi city]
-    FA --> F1[User: Không phù hợp<br/>AI đề xuất lại · Giữ history]
-    CO --> C1[prefill form mới · recommendation mới]
+    H --> H1["Form → KS+xe → Chọn điểm → 3 budget → Link booking"]
+    L --> L1["warnings[] · Ưu tiên KS rẻ, xe khách<br/>Gợi ý tăng budget / đổi city"]
+    FA --> F1["User: Không phù hợp<br/>AI đề xuất lại · Giữ history"]
+    CO --> C1["Prefill form mới · Recommendation mới"]
 ```
 
 ---
