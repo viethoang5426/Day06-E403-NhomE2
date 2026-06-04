@@ -1,7 +1,7 @@
 # Nhóm E2 - Lớp E403 (Day 06)
 
 ## Danh sách thành viên
-1. **Nguyễn Văn Chung** - Mã HV: `[2A202600647` (Research / evidence)
+1. **Nguyễn Văn Chung** - Mã HV: `[2A202600647]` (Research / evidence)
 2. **Cao Việt Hoàng** - Mã HV: `[2A202600779]` (SPEC & Prototype)
 3. **Võ Duy Bảo** - Mã HV: `[2A202600648]` (Test / failure path)
 4. **Vũ Thành Danh** - Mã HV: `[2A202600606]` (Demo script / repo)
