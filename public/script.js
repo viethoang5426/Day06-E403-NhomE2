@@ -1,6 +1,6 @@
 // ========================================
 // AI Travel Planner — TravelBot
-// Client-side Logic
+// Client-side Logic — Premium Redesign
 // ========================================
 
 (function () {
@@ -20,13 +20,108 @@
   const saveApiKeyBtn = document.getElementById('saveApiKey');
   const apiKeyStatus = document.getElementById('apiKeyStatus');
   const toggleKeyVisibility = document.getElementById('toggleKeyVisibility');
+  const sidebar = document.getElementById('sidebar');
+  const sidebarToggle = document.getElementById('sidebarToggle');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+  const newChatBtn = document.getElementById('newChatBtn');
+  const particleCanvas = document.getElementById('particleCanvas');
 
   // --- Initialize ---
   function init() {
     setupEventListeners();
     showWelcomeMessage();
+    initParticles();
     messageInput.focus();
     autoResizeTextarea();
+  }
+
+  // --- Particle Background ---
+  function initParticles() {
+    if (!particleCanvas) return;
+    const ctx = particleCanvas.getContext('2d');
+    let particles = [];
+    let animationId;
+    const particleCount = 40;
+
+    function resize() {
+      particleCanvas.width = window.innerWidth;
+      particleCanvas.height = window.innerHeight;
+    }
+
+    function createParticle() {
+      return {
+        x: Math.random() * particleCanvas.width,
+        y: Math.random() * particleCanvas.height,
+        size: Math.random() * 2 + 0.5,
+        speedX: (Math.random() - 0.5) * 0.3,
+        speedY: (Math.random() - 0.5) * 0.3,
+        opacity: Math.random() * 0.4 + 0.1,
+        pulseSpeed: Math.random() * 0.02 + 0.005,
+        pulsePhase: Math.random() * Math.PI * 2,
+      };
+    }
+
+    function initParticleArray() {
+      particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(createParticle());
+      }
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+
+      particles.forEach((p, i) => {
+        // Update position
+        p.x += p.speedX;
+        p.y += p.speedY;
+        p.pulsePhase += p.pulseSpeed;
+
+        // Wrap around edges
+        if (p.x < 0) p.x = particleCanvas.width;
+        if (p.x > particleCanvas.width) p.x = 0;
+        if (p.y < 0) p.y = particleCanvas.height;
+        if (p.y > particleCanvas.height) p.y = 0;
+
+        const pulseFactor = 0.5 + 0.5 * Math.sin(p.pulsePhase);
+        const currentOpacity = p.opacity * pulseFactor;
+        const currentSize = p.size * (0.8 + 0.4 * pulseFactor);
+
+        // Draw particle
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, currentSize, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 212, 255, ${currentOpacity})`;
+        ctx.fill();
+
+        // Draw connections
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 150) {
+            const lineOpacity = (1 - dist / 150) * 0.08;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(0, 212, 255, ${lineOpacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      });
+
+      animationId = requestAnimationFrame(drawParticles);
+    }
+
+    resize();
+    initParticleArray();
+    drawParticles();
+
+    window.addEventListener('resize', () => {
+      resize();
+    });
   }
 
   // --- Event Listeners ---
@@ -59,8 +154,57 @@
     toggleKeyVisibility.addEventListener('click', () => {
       const isPassword = apiKeyInput.type === 'password';
       apiKeyInput.type = isPassword ? 'text' : 'password';
-      toggleKeyVisibility.querySelector('.eye-icon').textContent = isPassword ? '🙈' : '👁️';
+      const svgIcon = toggleKeyVisibility.querySelector('.eye-icon-svg');
+      if (svgIcon) {
+        svgIcon.style.opacity = isPassword ? '1' : '0.5';
+      }
     });
+
+    // Sidebar toggle (mobile)
+    if (sidebarToggle) {
+      sidebarToggle.addEventListener('click', toggleSidebar);
+    }
+    if (sidebarOverlay) {
+      sidebarOverlay.addEventListener('click', closeSidebar);
+    }
+
+    // New chat button
+    if (newChatBtn) {
+      newChatBtn.addEventListener('click', handleNewChat);
+    }
+
+    // Quick action buttons
+    document.querySelectorAll('.quick-action-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const message = btn.dataset.message;
+        if (message) {
+          messageInput.value = message;
+          autoResizeTextarea();
+          updateSendButtonState();
+          handleSendMessage();
+          closeSidebar();
+        }
+      });
+    });
+  }
+
+  // --- Sidebar ---
+  function toggleSidebar() {
+    sidebar.classList.toggle('open');
+    sidebarOverlay.classList.toggle('open');
+  }
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    sidebarOverlay.classList.remove('open');
+  }
+
+  // --- New Chat ---
+  function handleNewChat() {
+    chatHistory = [];
+    chatMessages.innerHTML = '';
+    showWelcomeMessage();
+    messageInput.focus();
   }
 
   // --- Auto-resize textarea ---
@@ -100,8 +244,11 @@
   // --- Welcome Message ---
   function showWelcomeMessage() {
     const welcomeHtml = `
-      <p>Xin chào! Tôi là <strong>TravelBot</strong> 🌴</p>
-      <p>Tôi sẽ giúp bạn lên kế hoạch du lịch trọn gói — từ khách sạn, phương tiện đến các điểm tham quan hấp dẫn!</p>
+      <div class="welcome-hero">
+        <div class="welcome-hero-icon">🌏</div>
+        <h2>Xin chào! Tôi là TravelBot</h2>
+        <p>Trợ lý AI giúp bạn lên kế hoạch du lịch trọn gói — khách sạn, phương tiện & điểm tham quan!</p>
+      </div>
       <div class="welcome-features">
         <div class="welcome-feature">
           <span class="welcome-feature-icon">🏨</span>
@@ -120,8 +267,8 @@
           <span>Tính toán chi phí</span>
         </div>
       </div>
-      <p style="margin-top: 12px; color: var(--text-secondary); font-size: var(--font-sm);">
-        Hãy cho tôi biết bạn muốn đi du lịch ở đâu nhé! 🗺️
+      <p style="margin-top: 16px; color: var(--text-tertiary); font-size: var(--font-sm); text-align: center;">
+        Hãy cho tôi biết bạn muốn đi đâu nhé! 🗺️
       </p>
     `;
 
@@ -317,7 +464,7 @@
             <label>Ngân sách dự kiến</label>
             <input type="text" name="budget" id="budgetInput" placeholder="VD: 5 triệu" value="${escapeHtml(prefill.budget || '')}" required>
           </div>
-          <button type="submit" class="btn-submit-form">Gửi thông tin</button>
+          <button type="submit" class="btn-submit-form">🚀 Gửi thông tin</button>
         </form>
       </div>
     `;
@@ -377,7 +524,7 @@
           <div class="attraction-list">
             ${listHtml}
           </div>
-          <button type="submit" class="btn-submit-form">Xác nhận & Chốt lịch trình</button>
+          <button type="submit" class="btn-submit-form">✅ Xác nhận & Chốt lịch trình</button>
         </form>
       </div>
     `;
@@ -649,12 +796,141 @@
     const messageEl = document.createElement('div');
     messageEl.className = `message ${sender}`;
 
-    const avatarEmoji = sender === 'bot' ? '🌴' : '👤';
+    if (sender === 'bot') {
+      const botAvatar = `
+        <div class="message-avatar bot-avatar">
+          <svg class="bot-avatar-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" fill="url(#botGrad)" stroke="url(#botGrad)"></path>
+            <defs>
+              <linearGradient id="botGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7df9ff"></stop>
+                <stop offset="100%" stop-color="#0077b6"></stop>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="bot-avatar-glow"></span>
+        </div>
+      `;
 
-    messageEl.innerHTML = `
-      <div class="message-avatar">${avatarEmoji}</div>
-      <div class="message-content">${isHtml ? content : `<p>${content}</p>`}</div>
-    `;
+      messageEl.innerHTML = `
+        ${botAvatar}
+        <div class="message-content">
+          <div class="message-header">
+            <span class="message-name">TravelBot</span>
+            <span class="message-tag">AI Assistant</span>
+          </div>
+          <div class="message-text">${isHtml ? content : `<p>${content}</p>`}</div>
+          <div class="message-actions">
+            <button class="message-action-btn copy-btn" title="Sao chép câu trả lời">
+              <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <svg class="check-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+            <button class="message-action-btn speak-btn" title="Đọc câu trả lời">
+              <svg class="speak-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+              <svg class="mute-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ff5252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+                <path d="M9 9v6a3 3 0 0 0 3 3h1.586l4.707 4.707A1 1 0 0 0 20 22V4a1 1 0 0 0-1.707-.707L13.586 8H12a3 3 0 0 0-3 3z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      `;
+
+      // Attach button action event listeners
+      const copyBtn = messageEl.querySelector('.copy-btn');
+      const speakBtn = messageEl.querySelector('.speak-btn');
+      
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          const textToCopy = messageEl.querySelector('.message-text').innerText;
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            const copyIcon = copyBtn.querySelector('.copy-icon');
+            const checkIcon = copyBtn.querySelector('.check-icon');
+            if (copyIcon && checkIcon) {
+              copyIcon.style.display = 'none';
+              checkIcon.style.display = 'inline-block';
+              copyBtn.classList.add('active');
+              
+              setTimeout(() => {
+                copyIcon.style.display = 'inline-block';
+                checkIcon.style.display = 'none';
+                copyBtn.classList.remove('active');
+              }, 2000);
+            }
+          }).catch(err => {
+            console.error('Lỗi khi copy:', err);
+          });
+        });
+      }
+
+      if (speakBtn) {
+        let isSpeaking = false;
+        let utterance = null;
+
+        speakBtn.addEventListener('click', () => {
+          const speakIcon = speakBtn.querySelector('.speak-icon');
+          const muteIcon = speakBtn.querySelector('.mute-icon');
+          
+          if (isSpeaking) {
+            window.speechSynthesis.cancel();
+            isSpeaking = false;
+            if (speakIcon && muteIcon) {
+              speakIcon.style.display = 'inline-block';
+              muteIcon.style.display = 'none';
+            }
+            speakBtn.classList.remove('active');
+          } else {
+            window.speechSynthesis.cancel();
+            
+            const textToSpeak = messageEl.querySelector('.message-text').innerText;
+            utterance = new SpeechSynthesisUtterance(textToSpeak);
+            utterance.lang = 'vi-VN';
+            
+            utterance.onend = () => {
+              isSpeaking = false;
+              if (speakIcon && muteIcon) {
+                speakIcon.style.display = 'inline-block';
+                muteIcon.style.display = 'none';
+              }
+              speakBtn.classList.remove('active');
+            };
+
+            utterance.onerror = () => {
+              isSpeaking = false;
+              if (speakIcon && muteIcon) {
+                speakIcon.style.display = 'inline-block';
+                muteIcon.style.display = 'none';
+              }
+              speakBtn.classList.remove('active');
+            };
+
+            window.speechSynthesis.speak(utterance);
+            isSpeaking = true;
+            if (speakIcon && muteIcon) {
+              speakIcon.style.display = 'none';
+              muteIcon.style.display = 'inline-block';
+            }
+            speakBtn.classList.add('active');
+          }
+        });
+      }
+
+    } else {
+      messageEl.innerHTML = `
+        <div class="message-avatar user-avatar">👤</div>
+        <div class="message-content">
+          <div class="message-text">${isHtml ? content : `<p>${content}</p>`}</div>
+        </div>
+      `;
+    }
 
     chatMessages.appendChild(messageEl);
     scrollToBottom();
@@ -666,13 +942,35 @@
     const el = document.createElement('div');
     el.className = 'message bot';
     el.id = 'typingIndicator';
+    
+    const botAvatar = `
+      <div class="message-avatar bot-avatar">
+        <svg class="bot-avatar-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" fill="url(#botGrad)" stroke="url(#botGrad)"></path>
+          <defs>
+            <linearGradient id="botGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7df9ff"></stop>
+              <stop offset="100%" stop-color="#00d4ff"></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="bot-avatar-glow"></span>
+      </div>
+    `;
+
     el.innerHTML = `
-      <div class="message-avatar">🌴</div>
+      ${botAvatar}
       <div class="message-content">
-        <div class="typing-indicator">
-          <div class="typing-dot"></div>
-          <div class="typing-dot"></div>
-          <div class="typing-dot"></div>
+        <div class="message-header">
+          <span class="message-name">TravelBot</span>
+          <span class="message-tag">AI Assistant</span>
+        </div>
+        <div class="message-text">
+          <div class="typing-indicator">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
         </div>
       </div>
     `;
