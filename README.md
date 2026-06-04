@@ -1,4 +1,4 @@
-# Nhóm E3 - Lớp E403 (Day 06)
+# Nhóm E2 - Lớp E403 (Day 06)
 
 ## Danh sách thành viên
 1. **Nguyễn Văn Chung** - Mã HV: `[2A202600647` (Research / evidence)
